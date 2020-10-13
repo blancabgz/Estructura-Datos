@@ -1,14 +1,14 @@
+// Alumnos: Blanca Abril González
+//			Carlos Romero de la Puente
+
 #ifndef TABLERO_H
 #define TABLERO_H
 #include <iostream>
 
-// Alumnos: Blanca Abril González
-//			Carlos Romero de la Puente
-
 class tablero
 {
-private: 
-	matriz<bool> m;
+private:
+	matriz<bool> matriz;
 	int filas, columnas;
 
 public:
@@ -19,7 +19,7 @@ public:
 	~tablero();
 
 	bool estaLibre(int fila, int columna);
-	
+
 };
 
 #endif TABLERO_H

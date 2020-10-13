@@ -1,14 +1,16 @@
-#ifndef MATRIZ_H
-#define MATRIZ_H
-#include <iostream>
 
 // Alumnos: Blanca Abril González
 //			Carlos Romero de la Puente
 
+#ifndef MATRIZ_H
+#define MATRIZ_H
+#include <iostream>
+
+
 template <class M>
 class matriz
 {
-private: 
+private:
 	M **datos;
 	int filas, columnas;
 
@@ -28,7 +30,7 @@ public:
 	void insertarContenido (int fil, int col, const M &dato);
 
 	void borrarContenido (int fil, int col);
-	
+
 };
 
 #endif MATRIZ_H
