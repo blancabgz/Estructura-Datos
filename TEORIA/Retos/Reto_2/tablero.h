@@ -8,7 +8,7 @@
 class tablero
 {
 private:
-	matriz<bool> matriz;
+	matriz<bool> tablero;
 	int filas, columnas;
 
 public:
