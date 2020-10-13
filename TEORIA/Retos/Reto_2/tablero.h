@@ -20,6 +20,10 @@ public:
 
 	bool estaLibre(int fila, int columna);
 
+	void consultarDimensiones(int & filas, int & columnas);
+
+	bool encajaPieza(matriz<bool> pieza);
+
 };
 
 #endif TABLERO_H
