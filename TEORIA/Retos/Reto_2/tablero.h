@@ -14,7 +14,7 @@ private:
 public:
 	tablero();
 
-	tablero(int f, int c);
+	tablero(int fila, int columna);
 
 	~tablero();
 
