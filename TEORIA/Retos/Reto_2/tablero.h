@@ -24,6 +24,13 @@ public:
 
 	bool encajaPieza(matriz<bool> pieza);
 
+	// FALTA CORREGIR
+	void aniadeFilaAleat(int fila);
+
+	void eliminaLinea (int fila);
+
+	bool hayLineaCompleta (int fila, int &linsComple);
+
 };
 
 #endif TABLERO_H
