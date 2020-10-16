@@ -17,3 +17,7 @@ public:
 	pieza(int fila, int columna);
 
 	~pieza();
+
+	bool rotarPieza(Pieza pieza);
+
+	void consultarDimensiones(int & filas, int & columnas);
