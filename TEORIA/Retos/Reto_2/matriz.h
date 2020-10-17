@@ -7,18 +7,18 @@
 
 
 template <class M>
-class matriz
+class Matriz
 {
 private:
 	M **datos;
 	int filas, columnas;
 
 public:
-	matriz();
+	Matriz();
 
-	matriz(int f, int c);
+	Matriz(int f, int c);
 
-	~matriz();
+	~Matriz();
 
 	M getContenido (int fil, int col);
 

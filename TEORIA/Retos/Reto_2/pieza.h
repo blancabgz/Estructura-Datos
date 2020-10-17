@@ -5,18 +5,18 @@
 #define PIEZA_H
 #include <iostream>
 
-class pieza
+class Pieza
 {
 private:
-	matriz<bool> pieza;
+	matriz<bool> Pieza;
 	int filas, columnas;
 
 public:
-	pieza();
+	Pieza();
 
-	pieza(int fila, int columna);
+	Pieza(int fila, int columna);
 
-	~pieza();
+	~Pieza();
 
 	bool rotarPieza(Pieza pieza);
 

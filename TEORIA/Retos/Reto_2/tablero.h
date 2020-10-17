@@ -5,18 +5,18 @@
 #define TABLERO_H
 #include <iostream>
 
-class tablero
+class Tablero
 {
 private:
-	matriz<bool> tablero;
+	matriz<bool> Tablero;
 	int filas, columnas;
 
 public:
-	tablero();
+	Tablero();
 
-	tablero(int fila, int columna);
+	Tablero(int fila, int columna);
 
-	~tablero();
+	~Tablero();
 
 	bool estaLibre(int fila, int columna);
 
@@ -24,8 +24,7 @@ public:
 
 	bool encajaPieza(matriz<bool> pieza);
 
-	// FALTA CORREGIR
-	void aniadeFilaAleat(int fila);
+	void aniadeFilaAleat(int posFila);
 
 	void eliminaLinea (int fila);
 
