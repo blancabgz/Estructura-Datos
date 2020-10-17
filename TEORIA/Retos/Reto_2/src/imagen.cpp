@@ -25,11 +25,15 @@ void Imagen::dibujaJuego(){
 
 }
 
-void Imagen::dibujaTablero(Tablero tablero){
+void Imagen::dibujaTablero(){
 
 }
 
-void Imagen::dibujaCola(ColaPieza colaPieza){
+void Imagen::dibujaCola(){
+
+}
+
+int Imagen::getPuntuacion(){
 
 }
 

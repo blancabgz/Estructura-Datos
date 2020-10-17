@@ -25,11 +25,11 @@ void Tablero::consultarDimensiones(int & filas, int & columnas){
 
 }
 
-bool Tablero::encajaPieza(Pieza & pieza){
+bool Tablero::encajaPieza(Pieza & pieza, int fila, int columna){
 
 }
 
-void Tablero::aniadeFilaAleat(int posFila){
+void Tablero::aniadeFila(int posFila){
 
 }
 
