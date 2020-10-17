@@ -1,5 +1,7 @@
-*aux
+
+*.aux
 *.log
 *.gz
 *.toc
 /Estudiar
+/TEORIA/doxygen
