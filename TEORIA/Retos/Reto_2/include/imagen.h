@@ -7,6 +7,8 @@
 #include "tablero.h"
 #include "colaPieza.h"
 
+using namespace std;
+
 class Imagen
 {
 public:

@@ -16,10 +16,10 @@ Pieza::~Pieza(){
 
 }
 
-bool Pieza::rotarPieza(Pieza pieza){
+bool Pieza::rotarPieza(Pieza pieza, char direccion){
 
 }
 
-void Pieza::consultarDimensiones(int & filas, int & columnas){
+void Pieza::consultarDimensiones(Pieza pieza){
 
 }

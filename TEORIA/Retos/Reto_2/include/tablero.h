@@ -7,6 +7,8 @@
 #include "matriz.h"
 #include "pieza.h"
 
+using namespace std;
+
 class Tablero
 {
 private:

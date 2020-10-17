@@ -6,6 +6,8 @@
 #include <iostream>
 #include "pieza.h"
 
+using namespace std;
+
 class ColaPieza
 {
 private:
