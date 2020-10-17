@@ -10,6 +10,11 @@
 class Imagen
 {
 public:
+
+	Imagen();
+
+	~Imagen();
+
 	bool guardaJuego(std::ostream fichero);
 
 	bool cargaJuego(std::istream fichero);

@@ -4,6 +4,7 @@
 #ifndef PIEZA_H
 #define PIEZA_H
 #include <iostream>
+#include "matriz.h"
 
 class Pieza
 {

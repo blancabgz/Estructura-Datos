@@ -14,6 +14,8 @@ private:
 	int totalPiezas = 0;
 
 public:
+	ColaPieza();
+	~ColaPieza():
 
 	void colocaPieza(Pieza &pieza);
 

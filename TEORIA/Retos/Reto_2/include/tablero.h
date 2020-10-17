@@ -4,6 +4,8 @@
 #ifndef TABLERO_H
 #define TABLERO_H
 #include <iostream>
+#include "matriz.h"
+#include "pieza.h"
 
 class Tablero
 {
@@ -22,7 +24,7 @@ public:
 
 	void consultarDimensiones(int & filas, int & columnas);
 
-	bool encajaPieza(matriz<bool> pieza);
+	bool encajaPieza(Pieza & pieza);
 
 	void aniadeFilaAleat(int posFila);
 
