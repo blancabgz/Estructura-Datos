@@ -1,5 +1,5 @@
  /**
-  * @file Imagen.cpp
+  * @file imagen.cpp
   * @brief Fichero con definiciones para la E/S de imágenes
   *
   * Permite la E/S de archivos de tipo PGM,PPM
@@ -9,16 +9,25 @@
 #include <fstream>
 #include <string>
 
-#include <Imagen.h>
+#include "Imagen.h"
 
 using namespace std;
+
+void Imagen::ReservaMemoria(int filas, int columnas){
+  if (filas > 0 && columnas > 0){
+    img = new byte *[filas];
+    for(int i = 0; i < filas; i++){
+        img[i] = new byte [cols];
+    }
+  }
+}
 
 Imagen::Imagen(){
     filas=0;
     cols=0;
     img=nullptr;
 }
-      
+
 Imagen::Imagen(const Imagen &J){
     filas = J.filas;
     cols = J.cols;
@@ -38,10 +47,7 @@ Imagen::Imagen(const Imagen &J){
 Imagen::Imagen(int filas, int cols){
     this->filas = filas;
     this->cols = cols;
-    img = new byte *[filas];
-    for(int i = 0; i < filas; i++){
-        img[i] = new byte [cols];
-    }
+    ReservaMemoria(filas, cols);
 }
 
 Imagen::~Imagen(){
@@ -63,7 +69,7 @@ int Imagen::num_columnas() const{
 }
 
 void Imagen::asigna_pixel(int fila, int col, byte valor){
-    if(fila >= 0 && fila < num_filas() && 
+    if(fila >= 0 && fila < num_filas() &&
        col >= 0 && col < num_columnas() &&
        valor >= 0 && valor <= 255){
         img[fila][col] = valor;
@@ -72,7 +78,7 @@ void Imagen::asigna_pixel(int fila, int col, byte valor){
 
 byte Imagen::valor_pixel (int fila, int col){
     byte valor;
-    if(fila >= 0 && fila < num_filas() && 
+    if(fila >= 0 && fila < num_filas() &&
        col >= 0 && col < num_columnas()){
         return img[fila][col];
     }
@@ -122,12 +128,12 @@ bool Imagen::LeerCabecera (ifstream& f, int& fils, int& cols){
     while (SaltarSeparadores(f)=='#')
       getline(f,linea);
     f >> cols >> fils >> maxvalor;
-    
+
     if (/*str &&*/ f && fils>0 && fils<5000 && cols>0 && cols<5000){
         f.get(); // Saltamos separador
         return true;
     }
-    else 
+    else
       return false;
 }
 
@@ -140,7 +146,7 @@ unsigned char Imagen::*LeerImagenPPM (const char *nombre, int& fils, int& cols){
   fils=0;
   cols=0;
   ifstream f(nombre);
-  
+
   if (LeerTipo(f)==IMG_PPM){
     if (LeerCabecera (f, fils, cols)){
         res= new unsigned char[fils*cols*3];
@@ -161,7 +167,7 @@ unsigned char Imagen::*LeerImagenPGM (const char *nombre, int& fils, int& cols){
   fils=0;
   cols=0;
   ifstream f(nombre);
-  
+
   if (LeerTipo(f)==IMG_PGM){
     if (LeerCabecera (f, fils, cols)){
       res= new unsigned char[fils*cols];
@@ -177,11 +183,11 @@ unsigned char Imagen::*LeerImagenPGM (const char *nombre, int& fils, int& cols){
 
 // _____________________________________________________________________________
 
-bool Imagen::EscribirImagenPPM (const char *nombre, const unsigned char *datos, 
+bool Imagen::EscribirImagenPPM (const char *nombre, const unsigned char *datos,
                         const int fils, const int cols){
   ofstream f(nombre);
   bool res= true;
-  
+
   if (f){
     f << "P6" << endl;
     f << cols << ' ' << fils << endl;
@@ -194,11 +200,11 @@ bool Imagen::EscribirImagenPPM (const char *nombre, const unsigned char *datos,
 }
 // _____________________________________________________________________________
 
-bool Imagen::EscribirImagenPGM (const char *nombre, const unsigned char *datos, 
+bool Imagen::EscribirImagenPGM (const char *nombre, const unsigned char *datos,
                         const int fils, const int cols){
   ofstream f(nombre);
   bool res= true;
-  
+
   if (f){
     f << "P5" << endl;
     f << cols << ' ' << fils << endl;
@@ -211,4 +217,4 @@ bool Imagen::EscribirImagenPGM (const char *nombre, const unsigned char *datos,
 }
 
 
-/* Fin Fichero: Imagen.cpp */
+/* Fin Fichero: imagen.cpp */
