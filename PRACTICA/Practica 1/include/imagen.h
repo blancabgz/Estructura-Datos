@@ -39,13 +39,29 @@ class Imagen{
 
   public:
 
+    /****************************************************************************/
+    // Funcion: ReservaMemoria(int filas, int columnas)
+    // Tarea:   Reserva la memoria dinámica para la imagen
+    // Recibe:  int filas, Número de filas de la imagen.
+    //          int cols, Número de columnas de la imagen.
+    // Devuelve: void.
+    /*****************************************************************************/
+
     void ReservaMemoria(int filas, int columnas);
+
+    /****************************************************************************/
+    // Funcion: LiberaMemoria()
+    // Tarea:   Reserva la memoria dinámica para la imagen
+    // Recibe:  int filas, Número de filas de la imagen.
+    //          int cols, Número de columnas de la imagen.
+    // Devuelve: void.
+    /*****************************************************************************/
+
+    void LiberaMemoria();
 
     Imagen();
 
-    Imagen(const Imagen &J);
-
-    // [???] operator =
+    Imagen(const Imagen &imagen);
 
     /****************************************************************************/
     // Funcion: Imagen(int filas, int cols)
@@ -103,7 +119,7 @@ class Imagen{
     //     2. Los restantes píxeles no se modifican.
     /****************************************************************************/
 
-    void asigna_pixel(int fila, int col, unsigned char valor);
+    void asigna_pixel(int fila, int col, byte valor);
 
     /****************************************************************************/
     // Funcion: byte valor_pixel (int fila, int col)  const
@@ -117,8 +133,9 @@ class Imagen{
     // Comentarios: La imagen no se modifica.
     /****************************************************************************/
 
-    byte valor_pixel(int fila, int col);
+    byte valor_pixel(int fila, int col) const;
 
+    Imagen &operator=(const Imagen &imge);
 
   };
 

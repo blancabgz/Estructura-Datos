@@ -14,36 +14,34 @@
 
 using namespace std;
 
-void Imagen::ReservaMemoria(int filas, int columnas){
-  if (filas > 0 && columnas > 0){
-    img = new byte *[filas];
-    for(int i = 0; i < filas; i++){
-        img[i] = new byte [cols];
-    }
-  }
-}
-
 Imagen::Imagen(){
     filas=0;
     cols=0;
     img=nullptr;
 }
 
-Imagen::Imagen(const Imagen &J){
-    filas = J.filas;
-    cols = J.cols;
+void Imagen::LiberaMemoria(){
+    for(int i = 0; i < filas; i++){
+        delete [] img[i];
+    }
+    delete [] img;
+    this->filas = 0;
+    this->cols = 0;
+    this->img = nullptr;
+}
+
+void Imagen::ReservaMemoria(int fils, int columnas){
+    filas = fils;
+    cols = columnas;
     img = new byte *[filas];
     for(int i = 0; i < filas; i++){
         img[i] = new byte [cols];
     }
-    for(int i = 0; i < filas; i++){
-        for(int j = 0; j < cols; j++){
-            img[i][j] = J.img[i][j];
-        }
-    }
 }
 
-// [???] operator =
+Imagen::Imagen(const Imagen &imagen){
+    *this=imagen;
+}
 
 Imagen::Imagen(int filas, int cols){
     this->filas = filas;
@@ -52,13 +50,7 @@ Imagen::Imagen(int filas, int cols){
 }
 
 Imagen::~Imagen(){
-    for(int i = 0; i < filas; i++){
-        delete [] img[i];
-    }
-    delete [] img;
-    this->filas = 0;
-    this->cols = 0;
-    this->img = nullptr;
+    LiberaMemoria();
 }
 
 int Imagen::num_filas() const{
@@ -69,7 +61,7 @@ int Imagen::num_columnas() const{
     return this->cols;
 }
 
-void Imagen::asigna_pixel(int fila, int col, unsigned char valor){
+void Imagen::asigna_pixel(int fila, int col, byte valor){
     if(fila >= 0 && fila < num_filas() &&
        col >= 0 && col < num_columnas() &&
        valor >= 0 && valor <= 255){
@@ -77,13 +69,26 @@ void Imagen::asigna_pixel(int fila, int col, unsigned char valor){
     }
 }
 
-byte Imagen::valor_pixel(int fila, int col){
+byte Imagen::valor_pixel(int fila, int col) const{
     byte valor;
     if(fila >= 0 && fila < num_filas() &&
        col >= 0 && col < num_columnas()){
         valor = img[fila][col];
     }
     return valor;
+}
+
+Imagen &Imagen::operator=(const Imagen &imge){
+    byte valor;
+    LiberaMemoria();
+    ReservaMemoria(imge.num_filas(), imge.num_columnas());
+    for(int i = 0; i < imge.num_filas(); i++){
+      for(int j = 0; j < imge.num_columnas(); j++){
+         valor = imge.valor_pixel(i,j);
+        //this->asigna_pixel(i,j,valor);
+      }
+    }
+    return *this;
 }
 
 
