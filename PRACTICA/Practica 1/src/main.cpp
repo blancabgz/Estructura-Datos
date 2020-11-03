@@ -27,19 +27,19 @@ int main(int argc, char const *argv[]) {
       I.asigna_pixel (f, c, 255);
 
   for(int f = 0; f < I.num_filas(); f++){         // lado izquierdo
-    I.asigna_pixel (f, 0, '0');
+    I.asigna_pixel (f, 0, 0);
   }
 
   for (int f=0; f < I.num_filas(); f++){          // lado derecho
-    I.asigna_pixel(f, I.num_columnas() -1 , '0');
+    I.asigna_pixel(f, I.num_columnas() -1 , 0);
   }
 
   for(int c = 0; c < I.num_columnas(); c++){      // lado superior
-    I.asigna_pixel(0,c,'0');
+    I.asigna_pixel(0,c,0);
   }
 
   for(int c = 0; c < I.num_columnas(); c++){      // lado inferior
-     I.asigna_pixel (I.num_filas () - 1, c, '0');
+     I.asigna_pixel (I.num_filas () - 1, c, 0);
   }
 
   // resultado
