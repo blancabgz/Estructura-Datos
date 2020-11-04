@@ -3,6 +3,7 @@
 #include <cstring>
 #include "imagen.h"
 #include "imagenES.h"
+#include "utilidades.h"
 
 
 using namespace std;
@@ -10,29 +11,43 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
   // definicion variables
-  int fila1, fila2, columna1, columna2;
+  int fila,columna;
   int t_1, t_2;
-  unsigned char *img1, *img2;
+  unsigned char *img, *imgfinal;
+  bool escribeImagen;
 
   // obtener argumentos
-  if(argc != 5){
+  if(argc != 4){
     cout << "Numero erroneo de parametros. Debe haber 4 parametros.";
+    exit (-1);
   }
 
-  if(argv[3] > 0 && argv[4] > 0){
-    t_1 = atoi(argv[3]);
-    t_2 = atoi(argv[4]);
+  if(argv[2] > 0 && argv[3] > 0){
+    t_1 = atoi(argv[2]);
+    t_2 = atoi(argv[3]);
   }
 
-  img1 = LeerImagenPGM(argv[1], fila1, columna1);
+  img = LeerImagenPGM(argv[1], fila, columna);
 
-  cout << fila1 << endl;
-  cout << columna1 << endl;
+  Imagen imagen(fila, columna, img);
 
-  Imagen img_final;
+  int aux = 0;
+  for(int i = 0; i < fila; i++){
+    for(int j = 0; j < columna; j++){
+      if(imagen.valor_pixel(i,j) != img[aux]){
+        cout << "Son distintos" << endl;
+      }
+      aux++;
+    }
+  }
+  imgfinal = compararPixeles(imagen, fila, columna, t_1, t_2);
 
+  escribeImagen = EscribirImagenPGM("./imagenespgmppm/castillomod.pgm", img, fila, columna);
 
+  if(escribeImagen != true){
+    cout << "Ha ocurrido un error";
+  }
 
-
-  return 0;
+  delete [] img;
+  delete []imgfinal;
 }

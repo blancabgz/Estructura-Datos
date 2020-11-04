@@ -14,49 +14,77 @@
 
 using namespace std;
 
-Imagen::Imagen(){
-    filas=0;
-    cols=0;
-    img=nullptr;
-}
 
 void Imagen::LiberaMemoria(){
-    for(int i = 0; i < filas; i++){
-        delete [] img[i];
+  if(this->img != nullptr){
+    for(int i = 0; i < fils; i++){
+      delete [] img[i];
     }
     delete [] img;
-    this->filas = 0;
-    this->cols = 0;
-    this->img = nullptr;
+  }
+
+  this->fils = 0;
+  this->cols = 0;
+  this->img = nullptr;
 }
 
-void Imagen::ReservaMemoria(int fils, int columnas){
-    filas = fils;
-    cols = columnas;
-    img = new byte *[filas];
-    for(int i = 0; i < filas; i++){
+void Imagen::ReservaMemoria(int fils, int cols){
+    this->fils = fils;
+    this->cols = cols;
+
+    img = new byte *[fils];
+    for(int i = 0; i < fils; i++){
         img[i] = new byte [cols];
     }
 }
 
+// Constructor por defecto
+
+Imagen::Imagen(){
+    fils=0;
+    cols=0;
+    img=nullptr;
+}
+
+// Constructores por parametros
+Imagen::Imagen(int fils, int cols){
+    ReservaMemoria(fils, cols);
+}
+
+Imagen::Imagen(int fils, int cols, unsigned char * datos){
+  // creamos una imagen con num_filas y num_columnas
+  ReservaMemoria(fils, cols);
+
+  // contador auxiliar
+  int aux = 0;
+
+  // rellenar los npixeles
+  for(int i = 0; i < fils; i++){
+    for(int j = 0; j < cols; j++){
+      asigna_pixel(i,j,datos[aux]);
+      aux++;
+    }
+  }
+
+}
+
+// Constructor de copia
 Imagen::Imagen(const Imagen &imagen){
     *this=imagen;
 }
 
-Imagen::Imagen(int filas, int cols){
-    this->filas = filas;
-    this->cols = cols;
-    ReservaMemoria(filas, cols);
-}
 
+//Destructor
 Imagen::~Imagen(){
     LiberaMemoria();
 }
 
+// obtener num filas
 int Imagen::num_filas() const{
-    return this->filas;
+    return this->fils;
 }
 
+// obtener num columnasmagen(fila, columna,
 int Imagen::num_columnas() const{
     return this->cols;
 }

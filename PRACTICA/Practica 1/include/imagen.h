@@ -32,7 +32,7 @@ class Imagen{
     // Definición de los tipos para manejar imagenes digitales. Es solo un ejemplo de lo que
     // podría ser esta parte privada.
 
-    int filas;     // Número de filas de la imagen
+    int fils;     // Número de filas de la imagen
     int cols;      // Número de columnas de la imagen
     byte **img;    // La imagen en si: una matriz dinamica 2D de bytes
 
@@ -46,7 +46,7 @@ class Imagen{
     // Devuelve: void.
     /*****************************************************************************/
 
-    void ReservaMemoria(int filas, int columnas);
+    void ReservaMemoria(int fils, int cols);
 
     /****************************************************************************/
     // Funcion: LiberaMemoria()
@@ -73,7 +73,23 @@ class Imagen{
     //     2. La imagen creada contiene "filas" filas y "cols" columnas.
     //     3. La imagen creada no esta inicializada.
     /*****************************************************************************/
-    Imagen(int filas, int cols);
+    Imagen(int fils, int cols);
+
+    /****************************************************************************/
+    // Funcion: Imagen(int filas, int cols, unsigned char *datos)
+    // Tarea:   Crear una imagen en memoria con "filas" filas y "cols" columnas.
+    //          Reserva memoria para alojar la imagen de "filas" x "cols" pixeles.
+    //          Añadir los pixeles
+    // Recibe:  int filas, Número de filas de la imagen.
+    //          int cols, Número de columnas de la imagen.
+    //          int datos, Array con los pixeles
+    // Devuelve: imagen, la imagen creada.
+    // Comentarios://     1. Operación de tipo constructor.
+    //     2. La imagen creada contiene "filas" filas, "cols" columnas.
+    //     3. Se rellena la imagen con los valores de los pixeles.
+    /*****************************************************************************/
+    Imagen(int fils, int cols, unsigned char * datos);
+
 
     /****************************************************************************/
     // Funcion: ~Imagen()// Tarea:   Liberar los recursos ocupados por la imagen.
