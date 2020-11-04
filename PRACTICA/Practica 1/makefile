@@ -3,19 +3,29 @@ BIN=bin
 SRC=src
 INC=include
 
-all: $(BIN)/main
+all: $(BIN)/ejercicio1
 
 # Ejecutables
-$(BIN)/main: $(OBJ)/main.o $(OBJ)/imagen.o
-	g++ -o $(BIN)/main $(OBJ)/main.o $(OBJ)/imagen.o
+$(BIN)/ejercicio1: $(OBJ)/ejercicio1.o $(OBJ)/imagen.o $(OBJ)/imagenES.o
+	g++ -o $(BIN)/ejercicio1 $(OBJ)/ejercicio1.o $(OBJ)/imagen.o $(OBJ)/imagenES.o
+
+$(BIN)/negativo: $(OBJ)/negativo.o $(OBJ)/imagenES.o
+	g++ -g -o $(BIN)/negativo $(OBJ)/negativo.o $(OBJ)/imagenES.o
 
 # Objetos
 
 $(OBJ)/imagen.o: $(SRC)/imagen.cpp $(INC)/imagen.h
 	g++ -c -o $(OBJ)/imagen.o $(SRC)/imagen.cpp -I$(INC)
 
-$(OBJ)/main.o: $(SRC)/main.cpp $(INC)/imagen.h
-	g++ -c -o $(OBJ)/main.o $(SRC)/main.cpp -I$(INC)
+$(OBJ)/imagenES.o: $(SRC)/imagenES.cpp $(INC)/imagenES.h
+	g++ -c -o $(OBJ)/imagenES.o $(SRC)/imagenES.cpp -I$(INC)
+
+$(OBJ)/ejercicio1.o: $(SRC)/ejercicio1.cpp $(INC)/imagen.h $(INC)/imagenES.h
+	g++ -c -o $(OBJ)/ejercicio1.o $(SRC)/ejercicio1.cpp -I$(INC)
+
+$(OBJ)/negativo.o : $(SRC)/negativo.cpp
+	g++ -g -c -o $(OBJ)/negativo.o -I. $(SRC)/negativo.cpp
+
 
 
 clean:
@@ -23,4 +33,4 @@ clean:
 	rm $(OBJ)/*.o	$(LIB)/*.a
 
 mrproper:	clean
-		rm $(BIN)/principal
+		rm $(BIN)/main
