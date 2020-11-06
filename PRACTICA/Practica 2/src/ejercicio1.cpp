@@ -33,24 +33,13 @@ int main(int argc, char const *argv[]) {
   // creo una imagen
   Imagen imagen(fila, columna, img);
 
-  // comprobacion de que los valores de la imagen y mi imagen creada son los mismos
-  int aux = 0;
-  for(int i = 0; i < fila; i++){
-    for(int j = 0; j < columna; j++){
-      if(imagen.valor_pixel(i,j) != img[aux]){
-        cout << "Son distintos" << endl;
-      }
-      aux++;
-    }
-  }
-
   // compara pixeles
   imgfinal = compararPixeles(imagen, fila, columna, t_1, t_2);
 
 
   escribeImagen = EscribirImagenPGM("./imagenespgmppm/castillomod.pgm", imgfinal, fila, columna);
 
-  if(escribeImagen != true){
+  if(!escribeImagen){
     cout << "Ha ocurrido un error";
   }
 
