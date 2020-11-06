@@ -13,13 +13,13 @@ int main(int argc, char const *argv[]) {
   // definicion variables
   int fila,columna;
   int t_1, t_2;
-  unsigned char *img, *imgfinal;
+  unsigned char *img, *imgfinal_eg, *imgfinal_aut;
   bool escribeImagen;
 
   // obtener argumentos
   if(argc != 4){
     cout << "Numero erroneo de parametros. Debe haber 4 parametros.";
-    exit (-1);
+
   }
 
   if(argv[2] > 0 && argv[3] > 0){
@@ -33,16 +33,17 @@ int main(int argc, char const *argv[]) {
   // creo una imagen
   Imagen imagen(fila, columna, img);
 
-  // compara pixeles
-  imgfinal = compararPixeles(imagen, fila, columna, t_1, t_2);
+  // compara pixeles usando escala de grises
+  imgfinal_eg = compararPixeles(imagen, fila, columna, t_1, t_2);
 
-
-  escribeImagen = EscribirImagenPGM("./imagenespgmppm/castillomod.pgm", imgfinal, fila, columna);
+  //Sacas la imagen con el umbral hecho
+  escribeImagen = EscribirImagenPGM("./imagenespgmppm/castillomod.pgm", imgfinal_eg, fila, columna);
 
   if(!escribeImagen){
     cout << "Ha ocurrido un error";
   }
 
   delete [] img;
-  delete []imgfinal;
+  delete [] imgfinal_eg;
+
 }

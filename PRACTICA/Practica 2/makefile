@@ -9,6 +9,9 @@ all: $(BIN)/ejercicio1
 $(BIN)/ejercicio1: $(OBJ)/ejercicio1.o $(OBJ)/imagen.o $(OBJ)/imagenES.o $(OBJ)/utilidades.o
 	g++ -g -o $(BIN)/ejercicio1 $(OBJ)/ejercicio1.o $(OBJ)/utilidades.o $(OBJ)/imagen.o $(OBJ)/imagenES.o
 
+$(BIN)/ejercicio4: $(OBJ)/ejercicio4.o $(OBJ)/imagen.o $(OBJ)/imagenES.o $(OBJ)/utilidades.o
+	g++ -g -o $(BIN)/ejercicio4 $(OBJ)/ejercicio4.o $(OBJ)/utilidades.o $(OBJ)/imagen.o $(OBJ)/imagenES.o
+
 $(BIN)/negativo: $(OBJ)/negativo.o $(OBJ)/imagenES.o
 	g++ -g -o $(BIN)/negativo $(OBJ)/negativo.o $(OBJ)/imagenES.o
 
@@ -22,6 +25,9 @@ $(OBJ)/imagenES.o: $(SRC)/imagenES.cpp $(INC)/imagenES.h
 
 $(OBJ)/ejercicio1.o: $(SRC)/ejercicio1.cpp $(INC)/imagen.h $(INC)/imagenES.h
 	g++ -g -c -o $(OBJ)/ejercicio1.o $(SRC)/ejercicio1.cpp -I$(INC)
+
+$(OBJ)/ejercicio4.o: $(SRC)/ejercicio4.cpp $(INC)/imagen.h $(INC)/imagenES.h
+	g++ -g -c -o $(OBJ)/ejercicio4.o $(SRC)/ejercicio4.cpp -I$(INC)
 
 $(OBJ)/negativo.o : $(SRC)/negativo.cpp
 	g++ -g -c -o $(OBJ)/negativo.o -I. $(SRC)/negativo.cpp
