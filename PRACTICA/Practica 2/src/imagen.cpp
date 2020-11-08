@@ -112,7 +112,7 @@ Imagen &Imagen::operator=(const Imagen &imge){
     for(int i = 0; i < imge.num_filas(); i++){
       for(int j = 0; j < imge.num_columnas(); j++){
          valor = imge.valor_pixel(i,j);
-        //this->asigna_pixel(i,j,valor);
+         this->asigna_pixel(i,j,valor);
       }
     }
     return *this;

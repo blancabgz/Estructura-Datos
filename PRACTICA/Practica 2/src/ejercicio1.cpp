@@ -36,6 +36,7 @@ int main(int argc, char const *argv[]) {
   // compara pixeles usando escala de grises
   imgfinal_eg = compararPixeles(imagen, fila, columna, t_1, t_2);
 
+
   //Sacas la imagen con el umbral hecho
   escribeImagen = EscribirImagenPGM("./imagenespgmppm/castillomod.pgm", imgfinal_eg, fila, columna);
 
