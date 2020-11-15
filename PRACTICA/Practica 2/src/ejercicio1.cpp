@@ -13,7 +13,7 @@ int main(int argc, char const *argv[]) {
   // definicion variables
   int fila,columna;
   int t_1, t_2;
-  unsigned char *img, *imgfinal_eg, *imgfinal_aut;
+  unsigned char *img, *imgfinal_eg, *imgcolor;
   bool escribeImagen;
 
   // obtener argumentos
@@ -44,7 +44,12 @@ int main(int argc, char const *argv[]) {
     cout << "Ha ocurrido un error";
   }
 
+  // imagen a color
+  
+
+
   delete [] img;
   delete [] imgfinal_eg;
+  delete [] imgcolor;
 
 }
