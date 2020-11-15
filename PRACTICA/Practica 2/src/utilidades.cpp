@@ -24,27 +24,39 @@ unsigned char *compararPixeles(Imagen & img, int fils, int cols, int t1, int t2)
 }
 
 
-unsigned char *creaIcono(Imagen & img, int fils_icono, int cols_icono){
-  unsigned char *icon = new unsigned char[fils_icono*cols_icono];
-  int aux = 0;
+unsigned char *creaIcono(Imagen & img, int fila_icon, int cols_icono){
+  unsigned char *icon = new unsigned char[fila_icon*cols_icono];
+  int suma = 0;
+  int nums = 0;
+  int contador = 0;
+  if(img.num_columnas() > cols_icono && img.num_filas() > fila_icon){
+    // Si la imagen es par/impar se calcula
+    if((img.num_filas() % 2 == 0 && img.num_columnas() % 2 == 0 && fila_icon % 2 == 0 && cols_icono % 2 == 0)
+       | (img.num_filas() % 3 == 0 && img.num_columnas() % 3 == 0 && fila_icon % 3 == 0 && cols_icono %3 == 0)){
 
-  int filas_a_recorrer = ceil(img.num_filas() / fils_icono);
-  int columnas_a_recorrer = ceil(img.num_columnas() / cols_icono);
+      int total_filas = img.num_filas() / fila_icon;
+      int total_col = img.num_columnas() / cols_icono;
 
-  // Si la imagen es par
-  if(img.num_filas() % 2 == 0 && img.num_columnas() % 2 == 0){
-    // Controlamos que las dimensiones a reducir sean divisores del tamaño
-    if(img.num_filas() % filas_a_recorrer == 0 && img.num_columnas() % columnas_a_recorrer == 0){
-      for(int i = 0; i < img.num_filas(); i += filas_a_recorrer){
-        for(int j = 0; j < img.num_columnas(); j += columnas_a_recorrer){
-          icon[aux] = (img.valor_pixel(i,j) + img.valor_pixel(i,j+cols_icono) + img.valor_pixel(i+fils_icono,j) + img.valor_pixel(i+fils_icono,j+cols_icono)) / fils_icono;
-          aux++;
+      for(int fil = 0; fil < img.num_filas() - 1; fil += total_filas){
+        for(int col = 0; col < img.num_columnas() - 1; col += total_col){
+          for(int i = fil; i < fila_icon + fil; i++){
+            for(int j = col; j < cols_icono + col; j++){
+              suma += img.valor_pixel(i,j);
+              nums++;
+            }
+          }
+            char total = suma/nums;
+            icon[contador] = total;
+            contador++;
+            suma = 0;
+            nums = 0;
         }
       }
+    }else{
+      cout << "Introduzca valores compatibles" << endl;
     }
-  } else{
-    cout << "La imagen es impar" << endl;
+  }else{
+    cout << "No introzca un valor mayor a la resolucion de la imagen" << endl;
   }
-
   return icon;
 }
