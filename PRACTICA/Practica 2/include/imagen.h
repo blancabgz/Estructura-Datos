@@ -1,15 +1,6 @@
-/*
- * File:   imagen.h
- * Author: Blanca Abril y Carlos Romero
- */
+// File:   imagen.h
+// Author: Blanca Abril y Carlos Romero
 
-/**
-  * @file Imagen.h
-  * @brief Fichero cabecera para la E/S de imágenes
-  *
-  * Permite la E/S de archivos de tipo PGM,PPM
-  *
-  */
 
 
 #ifndef _IMAGEN_H_

@@ -1,9 +1,7 @@
-/*
- * File:   imagen.h
- * Author: Blanca Abril y Carlos Romero
- *
- * Created on 25 de octubre de 2020, 11:05
- */
+
+// File:   utilidades.h
+// Author: Blanca Abril y Carlos Romero
+
 
 #ifndef UTILIDADES_H
 #define UTILIDADES_H
