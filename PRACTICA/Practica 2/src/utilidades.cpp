@@ -5,6 +5,7 @@
 using namespace std;
 
 
+
 unsigned char *compararPixeles(Imagen & img, int fils, int cols, int t1, int t2){
   unsigned char *res= new unsigned char[fils*cols];
   int aux = 0;
@@ -53,9 +54,11 @@ unsigned char *creaIcono(Imagen & img, int fila_icon, int cols_icono){
       }
     }else{
       cout << "Introduzca valores compatibles" << endl;
+      return 0;
     }
   }else{
-    cout << "No introzca un valor mayor a la resolucion de la imagen" << endl;
+    cout << "No introduzca un valor mayor a la resolucion de la imagen" << endl;
+    return 0;
   }
 
 

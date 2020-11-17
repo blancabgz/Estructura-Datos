@@ -10,12 +10,13 @@ int main() {
   // decision del usuario
   int seleccion;
 
-  // MENU 
+  // MENU
   cout << "--------------------------------------------------------" << endl;
   cout << "Elige una opcion" << endl;
   cout << "Marca 1 para umbralizar una imagen usando una escala de grises" << endl;
   cout << "Marca 2 para crear un icono a partir de una imagen" << endl;
   cout << "Marca 3 para convertir una imagen RGB a niveles de gris"  << endl;
+  cout << "--------------------------------------------------------" << endl;
 
   cout << "Seleccion: ";
   cin >> seleccion;
@@ -26,21 +27,30 @@ int main() {
       bool escribe_imagen;
       string seleccion_imagen;
       int fila, columna, t_1, t_2;
+      int aux;
 
       cout << "Umbralizar una imagen usando escala de grises" << endl;
       cout << "-----------------------------------------------------" << endl;
       cout << "Introduce la direccion de la imagen sin comillas: ";
       cin >> seleccion_imagen;
-      cout << "Introduce el umbral 1: ";
+      cout << "Introduce el umbral más bajo: ";
       cin >> t_1;
-      cout << "Introduce el umbral 2: ";
+      cout << "Introduce el umbral más alto: ";
       cin >> t_2;
 
       // leemos la imagen
       img = LeerImagenPGM(seleccion_imagen.c_str(), fila, columna);
 
+      // Comprobamos que el usuario ha introducido bien los datos
+      if(t_2 < t_1){
+        aux = t_1;
+        t_1 = t_2;
+        t_2 = aux;
+      }
+
       // comprobamos la existencia de la imagen
       if(fila != 0 && columna != 0){
+        // crea la imagen
         Imagen imagen(fila, columna, img);
 
         // compara pixeles usando escala de grises
@@ -89,12 +99,25 @@ int main() {
         // Creación del icono
         icono = creaIcono(img_icono, filaicono, columnaicono);
 
-        // Escribimos la imagen iconizada
-        escribe_icono = EscribirImagenPGM("./imagenespgmppm/icono.pgm", icono, filaicono, columnaicono);
+        // comprobamos que se ha creado el icono correctamente
+        if(icono != 0){
+          // Escribimos la imagen iconizada
+          escribe_icono = EscribirImagenPGM("./imagenespgmppm/icono.pgm", icono, filaicono, columnaicono);
+        }else{
+          escribe_icono = false;
+        }
+
+
+        if(!escribe_icono){
+          cout << "Ha fallado al escribir la imagen" << endl;
+        }else{
+          cout << "El icono se ha creado correctamente" << endl;
+        }
 
       }else{
           cout << "La direccion de la imagen no es válida" << endl;
       }
+
     }break;
 
     case 3:{
