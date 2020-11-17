@@ -1,3 +1,12 @@
+// File:   imagen.h
+// Author: Blanca Abril y Carlos Romero
+
+// Nota: Hemos elegido el ejercico 1 y el ejercicio 4.
+//       Además hemos implementado el ejercicio 0 como opcional
+//       tal y como viene indicado en el documento. 
+
+
+
 #include <iostream>
 #include <cmath>
 #include <cstring>
