@@ -19,7 +19,6 @@ unsigned char *compararPixeles(Imagen & img, int fils, int cols, int t1, int t2)
       aux++;
     }
   }
-
   return res;
 }
 
@@ -29,10 +28,12 @@ unsigned char *creaIcono(Imagen & img, int fila_icon, int cols_icono){
   int suma = 0;
   int nums = 0;
   int contador = 0;
+  cout << fila_icon << " " << cols_icono << endl;
   if(img.num_columnas() > cols_icono && img.num_filas() > fila_icon){
     // Si la imagen es par/impar se calcula
-    if((img.num_filas() % 2 == 0 && img.num_columnas() % 2 == 0 && fila_icon % 2 == 0 && cols_icono % 2 == 0)
-       | (img.num_filas() % 3 == 0 && img.num_columnas() % 3 == 0 && fila_icon % 3 == 0 && cols_icono %3 == 0)){
+    if(((img.num_filas() % 2 == 0) && (img.num_columnas() % 2 == 0) && (fila_icon % 2 == 0) && (cols_icono % 2 == 0))
+       || ((img.num_filas() % 2 == 1) && (img.num_columnas() % 2 == 1) && (fila_icon % 2 == 1) && (cols_icono %2 == 1))){
+
 
       int total_filas = img.num_filas() / fila_icon;
       int total_col = img.num_columnas() / cols_icono;
@@ -52,11 +53,32 @@ unsigned char *creaIcono(Imagen & img, int fila_icon, int cols_icono){
             nums = 0;
         }
       }
+
+      for(int i = 0; i < fila_icon * cols_icono; i++){
+        cout << icon[i] << endl;
+      }
     }else{
       cout << "Introduzca valores compatibles" << endl;
     }
   }else{
     cout << "No introzca un valor mayor a la resolucion de la imagen" << endl;
   }
+
+
   return icon;
+}
+
+
+
+unsigned char * convertirAGris(unsigned char * imgcolor, int fila, int columna){
+  unsigned char *imagen_gris = new unsigned char[fila*columna];
+  int total = fila*columna*3;
+  int aux = 0;
+
+  for(int i = 0; i < total; i+=3){
+    byte resultado = ((0.2989 * imgcolor[i]) + (0.587 * imgcolor[i+1]) + (0.114 * imgcolor[i+2]));
+    imagen_gris[aux] = resultado;
+    aux++;
+  }
+  return imagen_gris;
 }
