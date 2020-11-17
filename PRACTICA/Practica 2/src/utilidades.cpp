@@ -28,20 +28,18 @@ unsigned char *creaIcono(Imagen & img, int fila_icon, int cols_icono){
   int suma = 0;
   int nums = 0;
   int contador = 0;
-  cout << fila_icon << " " << cols_icono << endl;
-  if(img.num_columnas() > cols_icono && img.num_filas() > fila_icon){
-    // Si la imagen es par/impar se calcula
-    if(((img.num_filas() % 2 == 0) && (img.num_columnas() % 2 == 0) && (fila_icon % 2 == 0) && (cols_icono % 2 == 0))
-       || ((img.num_filas() % 2 == 1) && (img.num_columnas() % 2 == 1) && (fila_icon % 2 == 1) && (cols_icono %2 == 1))){
 
+  if(img.num_columnas() > cols_icono && img.num_filas() > fila_icon){
+    // las reducciones tienen que ser proporcionales
+    if(img.num_columnas() % cols_icono == 0 && img.num_filas() % fila_icon == 0){
 
       int total_filas = img.num_filas() / fila_icon;
       int total_col = img.num_columnas() / cols_icono;
 
       for(int fil = 0; fil < img.num_filas() - 1; fil += total_filas){
         for(int col = 0; col < img.num_columnas() - 1; col += total_col){
-          for(int i = fil; i < fila_icon + fil; i++){
-            for(int j = col; j < cols_icono + col; j++){
+          for(int i = fil; i < total_filas + fil; i++){
+            for(int j = col; j < total_col + col; j++){
               suma += img.valor_pixel(i,j);
               nums++;
             }
@@ -52,10 +50,6 @@ unsigned char *creaIcono(Imagen & img, int fila_icon, int cols_icono){
             suma = 0;
             nums = 0;
         }
-      }
-
-      for(int i = 0; i < fila_icon * cols_icono; i++){
-        cout << icon[i] << endl;
       }
     }else{
       cout << "Introduzca valores compatibles" << endl;
