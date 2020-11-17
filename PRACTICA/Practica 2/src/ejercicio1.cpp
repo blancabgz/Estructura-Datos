@@ -28,6 +28,8 @@ int main() {
       string seleccion_imagen;
       int fila, columna, t_1, t_2;
 
+      cout << "Umbralizar una imagen usando escala de grises" << endl;
+      cout << "-----------------------------------------------------" << endl;
       cout << "Introduce la direccion de la imagen sin comillas: ";
       cin >> seleccion_imagen;
       cout << "Introduce el umbral 1: ";
@@ -61,6 +63,9 @@ int main() {
       bool escribe_icono;
       int filaicono, columnaicono, filas, columnas;
 
+      cout << "Crear un icono a partir de una imagen" << endl;
+      cout << "-----------------------------------------------------" << endl;
+
       cout << "Introduce la direccion de la imagen sin comillas: ";
       cin >> seleccion_imagen;
       cout << "Introduce el numero de filas del icono: ";
@@ -83,6 +88,36 @@ int main() {
     }break;
 
     case 3:{
+      string seleccion_imagen;
+      unsigned char * imgcolor, * imgconvertida;
+      bool escribe_imagen_gris;
+      int nf_img, nc_img;
+      cout << "Convertir una imagen RGB a niveles de gris" << endl;
+      cout << "-----------------------------------------------------" << endl;
+
+      cout << "Introduce la direccion de la imagen sin comillas: ";
+      cin >> seleccion_imagen;
+
+      // obtengo la imagen a color
+      imgcolor = LeerImagenPPM(seleccion_imagen.c_str(),nf_img, nc_img);
+
+      // la imagen no existe
+      if(nf_img != 0 && nc_img != 0){
+        // convierto la imagen a escala de grises
+        imgconvertida = convertirAGris(imgcolor, nf_img, nc_img);
+        // escribo la imagen con escala de grises
+        escribe_imagen_gris = EscribirImagenPGM("./imagenespgmppm/imagen_convertida.pgm", imgconvertida, nf_img, nc_img);
+
+        if(!escribe_imagen_gris){
+          cout << "La imagen pasada no es correcta" << endl;
+        }else{
+          cout << "Imagen creada" << endl;
+        }
+      }else{
+        cout << "No se ha encontrado la imagen" << endl;
+      }
+
+
       }break;
 
     default:
