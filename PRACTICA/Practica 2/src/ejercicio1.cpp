@@ -10,8 +10,7 @@ int main() {
   // decision del usuario
   int seleccion;
 
-
-
+  // MENU 
   cout << "--------------------------------------------------------" << endl;
   cout << "Elige una opcion" << endl;
   cout << "Marca 1 para umbralizar una imagen usando una escala de grises" << endl;
@@ -40,19 +39,24 @@ int main() {
       // leemos la imagen
       img = LeerImagenPGM(seleccion_imagen.c_str(), fila, columna);
 
-      Imagen imagen(fila, columna, img);
+      // comprobamos la existencia de la imagen
+      if(fila != 0 && columna != 0){
+        Imagen imagen(fila, columna, img);
 
-      // compara pixeles usando escala de grises
-      imgfinal_eg = compararPixeles(imagen, fila, columna, t_1, t_2);
+        // compara pixeles usando escala de grises
+        imgfinal_eg = compararPixeles(imagen, fila, columna, t_1, t_2);
 
+        //Saca la imagen con el umbral hecho
+        escribe_imagen = EscribirImagenPGM("./imagenespgmppm/umbralizada.pgm", imgfinal_eg, fila, columna);
 
-      //Sacas la imagen con el umbral hecho
-      escribe_imagen = EscribirImagenPGM("./imagenespgmppm/umbralizada.pgm", imgfinal_eg, fila, columna);
-
-      if(!escribe_imagen){
-        cout << "Ha fallado al escribir la imagen" << endl;
+        // comprobamos que la funcion EscribirImagenPGM ha funcionado correctamente
+        if(!escribe_imagen){
+          cout << "Ha fallado al escribir la imagen" << endl;
+        }else{
+          cout << "La umbralizacion se ha completado" << endl;
+        }
       }else{
-        cout << "La umbralizacion se ha completado" << endl;
+        cout << "La direccion de la imagen no es válida" << endl;
       }
 
       }break;
@@ -76,15 +80,21 @@ int main() {
       // Leemos la imagen que nos han pasado por parámetro
       imagen_icono = LeerImagenPGM(seleccion_imagen.c_str(),filas, columnas);
 
-      // Creo la imagen para hacer el icono
-      Imagen img_icono(filas, columnas,imagen_icono);
+      // Comprobamos la existencia de la imagen
+      if(filas != 0 && columnas != 0){
 
-      // Creación del icono
-      icono = creaIcono(img_icono, filaicono, columnaicono);
+        // Creo la imagen para hacer el icono
+        Imagen img_icono(filas, columnas,imagen_icono);
 
-      // Escribimos la imagen iconizada
-      escribe_icono = EscribirImagenPGM("./imagenespgmppm/icono.pgm", icono, filaicono, columnaicono);
+        // Creación del icono
+        icono = creaIcono(img_icono, filaicono, columnaicono);
 
+        // Escribimos la imagen iconizada
+        escribe_icono = EscribirImagenPGM("./imagenespgmppm/icono.pgm", icono, filaicono, columnaicono);
+
+      }else{
+          cout << "La direccion de la imagen no es válida" << endl;
+      }
     }break;
 
     case 3:{
@@ -101,7 +111,7 @@ int main() {
       // obtengo la imagen a color
       imgcolor = LeerImagenPPM(seleccion_imagen.c_str(),nf_img, nc_img);
 
-      // la imagen no existe
+      // Comprobamos si la imagen existe
       if(nf_img != 0 && nc_img != 0){
         // convierto la imagen a escala de grises
         imgconvertida = convertirAGris(imgcolor, nf_img, nc_img);
@@ -116,7 +126,6 @@ int main() {
       }else{
         cout << "No se ha encontrado la imagen" << endl;
       }
-
 
       }break;
 
