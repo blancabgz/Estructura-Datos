@@ -4,8 +4,6 @@ SRC=src
 INC=include
 
 all: $(BIN)/ejercicio
-# ************ Generación de documentación ******************
-
 
 # Ejecutables
 $(BIN)/ejercicio: $(OBJ)/ejercicio.o $(OBJ)/utilidades.o
