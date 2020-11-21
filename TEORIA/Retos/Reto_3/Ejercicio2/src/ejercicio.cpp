@@ -5,43 +5,51 @@
 using namespace std;
 
 int main(){
-  list<int> lista;
-  int jugada, prediccion;
+  int listas, elem, num, comp;
+  list<int> l;
+  list<int> lcomprueba;
+  list<list<int>> ll;
+  bool encontrado;
 
-  cout << "Inicio del programa: " << endl;
-  cout << "--------------------------------------------------" << endl;
-  cout << "Introduce tus jugadas de esta forma " << endl;
-  cout << "Piedra: 1" << endl;
-  cout << "Papel: 2" << endl;
-  cout << "Tijera: 3" << endl;
-  cout << "Parar de meter jugadas: 0" << endl;
-  cout << "--------------------------------------------------" << endl;
+  cout << "¿Cuantas listas quieres introducir?" << endl;
+  cin >> listas;
 
-  // obtengo las jugadas del jugador hasta que meta un 0
-  cout << "Introduce una jugada (0 para finalizar):" << endl;
-  cin >> jugada;
-  while(jugada != 0){
-    if(jugada >= 4){
-      cout << "Has introducido un numero inválido" << endl;
-    }else{
-      lista.push_back(jugada);
+  for(int i = 0; i < listas; i++){
+    cout << "Lista " << i + 1 << ": " << endl;
+    cout << "¿Cuantos elementos quieres introducir? ";
+    cin >> elem;
+    if(elem > 0){
+      l.clear();
+      for(int j = 0; j < elem; j++){
+        cout << "Introduce numero: ";
+        cin >> num;
+        l.push_back(num);
+      }
     }
-    cout << "Introduce una jugada (0 para finalizar):" << endl;
-    cin >> jugada;
+    ll.push_back(l);
   }
 
-  cout << endl;
-  cout << "Introduce el numero de jugadas que quieres que prediga" << endl;
-  cin >> prediccion;
-  cout << "--------------------------------------------------" << endl;
+  cout << "¿Cuantas listas vas a comprobar? " << endl;
+  cin >> comp;
 
-  // funcion para predecir la jugada
-  int num = ppt(lista,prediccion);
+  for(int i = 0; i < comp; i++){
+    cout << "Lista " << i+1 << endl;
+    cout << "¿Cuantos elementos quieres introducir? ";
+    cin >> elem;
+    if(elem > 0){
+      lcomprueba.clear();
+      for(int j = 0; j < elem; j++){
+        cout << "Introduce numero: ";
+        cin >> num;
+        lcomprueba.push_back(num);
+      }
+      encontrado = contenido(ll,lcomprueba);
+      if(encontrado){
+        cout << "Cada elemento esta en una lista" << endl;
+      }else{
+        cout << "Los elementos se encontraban en mas de una lista o no estaban" << endl;
+      }
+    }
 
-  if(num != 0){
-    cout << "Tu proxima jugada es: " << num << endl;
-  }else{
-    cout << "No puedo predecir tu jugada porque no has hecho esa jugada antes" << endl;
   }
-
 }
