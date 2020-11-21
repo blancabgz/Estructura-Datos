@@ -2,40 +2,43 @@
 \label{utilidades_8h}\index{include/utilidades.h@{include/utilidades.h}}
 
 
-Este archivo contiene la funcion ppt para predecir la jugada.  
+Este archivo contiene la funcion contenido que nos dice si los elementos de una lista estan en otra una sola vez.  
 
 
 {\ttfamily \#include $<$list$>$}\newline
 \doxysubsection*{Funciones}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{utilidades_8h_a457e3ab59f85cf8a1b854ef2c5d8e20d}{ppt}} (list$<$ int $>$ \&lista, int n)
-\begin{DoxyCompactList}\small\item\em Predice la proxima jugada del oponente. La funcion obtiene el numero de jugadas ultimas introducidas por el oponente, busca en el historial la ultima vez que se ha realizado una jugada e imprime la siguiente jugada que ha realizado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{utilidades_8h_a2445d79de6eb8f5ae2ac537bd9fdb5ac}{contenido}} (list$<$ list$<$ int $>$$>$ \&ll, list$<$ int $>$ \&l)
+\begin{DoxyCompactList}\small\item\em Dada una lista ll y una lista l, nos indica si cada elemento l esta una sola vez en ll. La función contenido nos devuelve dada una lista ll y una lista l, true si cada elemento de l esta contenido una y solo una lista de ll. Si un elemento l no se encuentra contenida o esta contenida en mas de una lista devuelve false. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Descripción detallada}
-Este archivo contiene la funcion ppt para predecir la jugada. 
+Este archivo contiene la funcion contenido que nos dice si los elementos de una lista estan en otra una sola vez. 
 
 
 
 \doxysubsection{Documentación de las funciones}
-\mbox{\Hypertarget{utilidades_8h_a457e3ab59f85cf8a1b854ef2c5d8e20d}\label{utilidades_8h_a457e3ab59f85cf8a1b854ef2c5d8e20d}} 
-\index{utilidades.h@{utilidades.h}!ppt@{ppt}}
-\index{ppt@{ppt}!utilidades.h@{utilidades.h}}
-\doxysubsubsection{\texorpdfstring{ppt()}{ppt()}}
-{\footnotesize\ttfamily int ppt (\begin{DoxyParamCaption}\item[{list$<$ int $>$ \&}]{lista,  }\item[{int}]{n }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{utilidades_8h_a2445d79de6eb8f5ae2ac537bd9fdb5ac}\label{utilidades_8h_a2445d79de6eb8f5ae2ac537bd9fdb5ac}} 
+\index{utilidades.h@{utilidades.h}!contenido@{contenido}}
+\index{contenido@{contenido}!utilidades.h@{utilidades.h}}
+\doxysubsubsection{\texorpdfstring{contenido()}{contenido()}}
+{\footnotesize\ttfamily bool contenido (\begin{DoxyParamCaption}\item[{list$<$ list$<$ int $>$$>$ \&}]{ll,  }\item[{list$<$ int $>$ \&}]{l }\end{DoxyParamCaption})}
 
 
 
-Predice la proxima jugada del oponente. La funcion obtiene el numero de jugadas ultimas introducidas por el oponente, busca en el historial la ultima vez que se ha realizado una jugada e imprime la siguiente jugada que ha realizado. 
+Dada una lista ll y una lista l, nos indica si cada elemento l esta una sola vez en ll. La función contenido nos devuelve dada una lista ll y una lista l, true si cada elemento de l esta contenido una y solo una lista de ll. Si un elemento l no se encuentra contenida o esta contenida en mas de una lista devuelve false. 
 
 
 \begin{DoxyParams}{Parámetros}
-{\em lista} & es la lista de jugadas \\
+{\em lista} & con todas las listas introducidas por el usuario. \\
 \hline
-{\em n} & son las jugadas que hay que mirar \\
+{\em l} & con la lista que queremos comprobar \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nos devuelve un booleano. Devolverá true si cada elemento se encuentra solamente en una lista. Devolverá false si no esta el elemento en ninguna lista o está en más de una lista. 
+\end{DoxyReturn}
 \begin{DoxyAuthor}{Autor}
 Blanca Abril 
 \end{DoxyAuthor}

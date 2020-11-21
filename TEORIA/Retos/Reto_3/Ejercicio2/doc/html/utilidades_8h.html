@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Este archivo contiene la funcion ppt para predecir la jugada.  
+<p>Este archivo contiene la funcion contenido que nos dice si los elementos de una lista estan en otra una sola vez.  
 <a href="#details">Más...</a></p>
 <div class="textblock"><code>#include &lt;list&gt;</code><br />
 </div>
@@ -80,30 +80,30 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funciones</h2></td></tr>
-<tr class="memitem:a457e3ab59f85cf8a1b854ef2c5d8e20d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilidades_8h.html#a457e3ab59f85cf8a1b854ef2c5d8e20d">ppt</a> (list&lt; int &gt; &amp;lista, int n)</td></tr>
-<tr class="memdesc:a457e3ab59f85cf8a1b854ef2c5d8e20d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predice la proxima jugada del oponente. La funcion obtiene el numero de jugadas ultimas introducidas por el oponente, busca en el historial la ultima vez que se ha realizado una jugada e imprime la siguiente jugada que ha realizado.  <a href="utilidades_8h.html#a457e3ab59f85cf8a1b854ef2c5d8e20d">Más...</a><br /></td></tr>
-<tr class="separator:a457e3ab59f85cf8a1b854ef2c5d8e20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2445d79de6eb8f5ae2ac537bd9fdb5ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilidades_8h.html#a2445d79de6eb8f5ae2ac537bd9fdb5ac">contenido</a> (list&lt; list&lt; int &gt;&gt; &amp;ll, list&lt; int &gt; &amp;l)</td></tr>
+<tr class="memdesc:a2445d79de6eb8f5ae2ac537bd9fdb5ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dada una lista ll y una lista l, nos indica si cada elemento l esta una sola vez en ll. La función contenido nos devuelve dada una lista ll y una lista l, true si cada elemento de l esta contenido una y solo una lista de ll. Si un elemento l no se encuentra contenida o esta contenida en mas de una lista devuelve false.  <a href="utilidades_8h.html#a2445d79de6eb8f5ae2ac537bd9fdb5ac">Más...</a><br /></td></tr>
+<tr class="separator:a2445d79de6eb8f5ae2ac537bd9fdb5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock"><p>Este archivo contiene la funcion ppt para predecir la jugada. </p>
+<div class="textblock"><p>Este archivo contiene la funcion contenido que nos dice si los elementos de una lista estan en otra una sola vez. </p>
 </div><h2 class="groupheader">Documentación de las funciones</h2>
-<a id="a457e3ab59f85cf8a1b854ef2c5d8e20d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a457e3ab59f85cf8a1b854ef2c5d8e20d">&#9670;&nbsp;</a></span>ppt()</h2>
+<a id="a2445d79de6eb8f5ae2ac537bd9fdb5ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2445d79de6eb8f5ae2ac537bd9fdb5ac">&#9670;&nbsp;</a></span>contenido()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ppt </td>
+          <td class="memname">bool contenido </td>
           <td>(</td>
-          <td class="paramtype">list&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lista</em>, </td>
+          <td class="paramtype">list&lt; list&lt; int &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>ll</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
+          <td class="paramtype">list&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -113,14 +113,15 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Predice la proxima jugada del oponente. La funcion obtiene el numero de jugadas ultimas introducidas por el oponente, busca en el historial la ultima vez que se ha realizado una jugada e imprime la siguiente jugada que ha realizado. </p>
+<p>Dada una lista ll y una lista l, nos indica si cada elemento l esta una sola vez en ll. La función contenido nos devuelve dada una lista ll y una lista l, true si cada elemento de l esta contenido una y solo una lista de ll. Si un elemento l no se encuentra contenida o esta contenida en mas de una lista devuelve false. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lista</td><td>es la lista de jugadas </td></tr>
-    <tr><td class="paramname">n</td><td>son las jugadas que hay que mirar </td></tr>
+    <tr><td class="paramname">lista</td><td>con todas las listas introducidas por el usuario. </td></tr>
+    <tr><td class="paramname">l</td><td>con la lista que queremos comprobar </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Nos devuelve un booleano. Devolverá true si cada elemento se encuentra solamente en una lista. Devolverá false si no esta el elemento en ninguna lista o está en más de una lista. </dd></dl>
 <dl class="section author"><dt>Autor</dt><dd>Blanca Abril </dd></dl>
 <dl class="section date"><dt>Fecha</dt><dd>21 noviembre </dd></dl>
 
