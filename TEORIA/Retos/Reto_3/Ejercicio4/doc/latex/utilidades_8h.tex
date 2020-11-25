@@ -2,66 +2,40 @@
 \label{utilidades_8h}\index{include/utilidades.h@{include/utilidades.h}}
 
 
-Este archivo imprime todos los conjuntos de numeros hasta n.  
+este archivo imprime todos los conjuntos de numeros hasta n  
 
 
 {\ttfamily \#include $<$stack$>$}\newline
 \doxysubsection*{Funciones}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{utilidades_8h_a4703bf7ffa1772cc4d146222eb846c3c}{reordena}} (stack$<$ int $>$ \&pila)
-\begin{DoxyCompactList}\small\item\em Dado un conjunto de numeros, los reordena de tal forma que primero pone los pares y despues los impares en el mismo orden introducidos. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{utilidades_8h_a870ed98cbf03967a1dd913b8b437b19a}{imprimir\+\_\+pila}} (stack$<$ int $>$ pila)
-\begin{DoxyCompactList}\small\item\em Imprime la pila que se le pasa por referencia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{utilidades_8h_a15428f7549a304139fba3316f5a65659}{lexico\+\_\+stack}} (int \&n)
+\begin{DoxyCompactList}\small\item\em Dado un numero imprime todos los conjuntos ordenador de 1 a n. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Descripción detallada}
-Este archivo imprime todos los conjuntos de numeros hasta n. 
+este archivo imprime todos los conjuntos de numeros hasta n 
 
 
 
 \doxysubsection{Documentación de las funciones}
-\mbox{\Hypertarget{utilidades_8h_a870ed98cbf03967a1dd913b8b437b19a}\label{utilidades_8h_a870ed98cbf03967a1dd913b8b437b19a}} 
-\index{utilidades.h@{utilidades.h}!imprimir\_pila@{imprimir\_pila}}
-\index{imprimir\_pila@{imprimir\_pila}!utilidades.h@{utilidades.h}}
-\doxysubsubsection{\texorpdfstring{imprimir\_pila()}{imprimir\_pila()}}
-{\footnotesize\ttfamily void imprimir\+\_\+pila (\begin{DoxyParamCaption}\item[{stack$<$ int $>$}]{pila }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{utilidades_8h_a15428f7549a304139fba3316f5a65659}\label{utilidades_8h_a15428f7549a304139fba3316f5a65659}} 
+\index{utilidades.h@{utilidades.h}!lexico\_stack@{lexico\_stack}}
+\index{lexico\_stack@{lexico\_stack}!utilidades.h@{utilidades.h}}
+\doxysubsubsection{\texorpdfstring{lexico\_stack()}{lexico\_stack()}}
+{\footnotesize\ttfamily void lexico\+\_\+stack (\begin{DoxyParamCaption}\item[{int \&}]{n }\end{DoxyParamCaption})}
 
 
 
-Imprime la pila que se le pasa por referencia. 
-
-
-\begin{DoxyParams}{Parámetros}
-{\em pila} & la pila de numeros ordenada \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Devuelve}
-void. Imprime la pila ordenada 
-\end{DoxyReturn}
-\begin{DoxyAuthor}{Autor}
-Blanca Abril 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Fecha}
-21 noviembre 
-\end{DoxyDate}
-\mbox{\Hypertarget{utilidades_8h_a4703bf7ffa1772cc4d146222eb846c3c}\label{utilidades_8h_a4703bf7ffa1772cc4d146222eb846c3c}} 
-\index{utilidades.h@{utilidades.h}!reordena@{reordena}}
-\index{reordena@{reordena}!utilidades.h@{utilidades.h}}
-\doxysubsubsection{\texorpdfstring{reordena()}{reordena()}}
-{\footnotesize\ttfamily void reordena (\begin{DoxyParamCaption}\item[{stack$<$ int $>$ \&}]{pila }\end{DoxyParamCaption})}
-
-
-
-Dado un conjunto de numeros, los reordena de tal forma que primero pone los pares y despues los impares en el mismo orden introducidos. 
+Dado un numero imprime todos los conjuntos ordenador de 1 a n. 
 
 
 \begin{DoxyParams}{Parámetros}
-{\em pila} & la pila de numeros a ser ordenada \\
+{\em n} & numero del que tengo que imprimir los conjuntos ordenados \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Devuelve}
-void. Pasa por referencia la pila ordenada 
+void. Imprime los conjuntos ordenados 
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Autor}
 Blanca Abril 

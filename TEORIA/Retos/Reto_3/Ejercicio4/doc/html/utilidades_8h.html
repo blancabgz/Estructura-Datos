@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Este archivo imprime todos los conjuntos de numeros hasta n.  
+<p>este archivo imprime todos los conjuntos de numeros hasta n  
 <a href="#details">Más...</a></p>
 <div class="textblock"><code>#include &lt;stack&gt;</code><br />
 </div>
@@ -80,69 +80,37 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funciones</h2></td></tr>
-<tr class="memitem:a4703bf7ffa1772cc4d146222eb846c3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilidades_8h.html#a4703bf7ffa1772cc4d146222eb846c3c">reordena</a> (stack&lt; int &gt; &amp;pila)</td></tr>
-<tr class="memdesc:a4703bf7ffa1772cc4d146222eb846c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dado un conjunto de numeros, los reordena de tal forma que primero pone los pares y despues los impares en el mismo orden introducidos.  <a href="utilidades_8h.html#a4703bf7ffa1772cc4d146222eb846c3c">Más...</a><br /></td></tr>
-<tr class="separator:a4703bf7ffa1772cc4d146222eb846c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a870ed98cbf03967a1dd913b8b437b19a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilidades_8h.html#a870ed98cbf03967a1dd913b8b437b19a">imprimir_pila</a> (stack&lt; int &gt; pila)</td></tr>
-<tr class="memdesc:a870ed98cbf03967a1dd913b8b437b19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime la pila que se le pasa por referencia.  <a href="utilidades_8h.html#a870ed98cbf03967a1dd913b8b437b19a">Más...</a><br /></td></tr>
-<tr class="separator:a870ed98cbf03967a1dd913b8b437b19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15428f7549a304139fba3316f5a65659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilidades_8h.html#a15428f7549a304139fba3316f5a65659">lexico_stack</a> (int &amp;n)</td></tr>
+<tr class="memdesc:a15428f7549a304139fba3316f5a65659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dado un numero imprime todos los conjuntos ordenador de 1 a n.  <a href="utilidades_8h.html#a15428f7549a304139fba3316f5a65659">Más...</a><br /></td></tr>
+<tr class="separator:a15428f7549a304139fba3316f5a65659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock"><p>Este archivo imprime todos los conjuntos de numeros hasta n. </p>
+<div class="textblock"><p>este archivo imprime todos los conjuntos de numeros hasta n </p>
 </div><h2 class="groupheader">Documentación de las funciones</h2>
-<a id="a870ed98cbf03967a1dd913b8b437b19a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a870ed98cbf03967a1dd913b8b437b19a">&#9670;&nbsp;</a></span>imprimir_pila()</h2>
+<a id="a15428f7549a304139fba3316f5a65659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15428f7549a304139fba3316f5a65659">&#9670;&nbsp;</a></span>lexico_stack()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void imprimir_pila </td>
+          <td class="memname">void lexico_stack </td>
           <td>(</td>
-          <td class="paramtype">stack&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>pila</em></td><td>)</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Imprime la pila que se le pasa por referencia. </p>
+<p>Dado un numero imprime todos los conjuntos ordenador de 1 a n. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pila</td><td>la pila de numeros ordenada </td></tr>
+    <tr><td class="paramname">n</td><td>numero del que tengo que imprimir los conjuntos ordenados </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd>void. Imprime la pila ordenada </dd></dl>
-<dl class="section author"><dt>Autor</dt><dd>Blanca Abril </dd></dl>
-<dl class="section date"><dt>Fecha</dt><dd>21 noviembre </dd></dl>
-
-</div>
-</div>
-<a id="a4703bf7ffa1772cc4d146222eb846c3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4703bf7ffa1772cc4d146222eb846c3c">&#9670;&nbsp;</a></span>reordena()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void reordena </td>
-          <td>(</td>
-          <td class="paramtype">stack&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pila</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Dado un conjunto de numeros, los reordena de tal forma que primero pone los pares y despues los impares en el mismo orden introducidos. </p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pila</td><td>la pila de numeros a ser ordenada </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Devuelve</dt><dd>void. Pasa por referencia la pila ordenada </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void. Imprime los conjuntos ordenados </dd></dl>
 <dl class="section author"><dt>Autor</dt><dd>Blanca Abril </dd></dl>
 <dl class="section date"><dt>Fecha</dt><dd>21 noviembre </dd></dl>
 

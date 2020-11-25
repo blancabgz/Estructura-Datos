@@ -19,3 +19,6 @@ $(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h
 	g++ -g -c -o $(OBJ)/utilidades.o	-I$(INC) $(SRC)/utilidades.cpp -I$(INC)
 
 .PHONY: all doc
+
+clean:
+	rm $(OBJ)/* $(BIN)/*

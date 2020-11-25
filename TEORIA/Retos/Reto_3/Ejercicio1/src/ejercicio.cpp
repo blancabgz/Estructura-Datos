@@ -39,7 +39,13 @@ int main(){
   int num = ppt(lista,prediccion);
 
   if(num != 0){
-    cout << "Tu proxima jugada es: " << num << endl;
+    if(num == 1){
+        cout << "Tu proxima jugada es: Piedra" << endl;
+    }else if(num==2){
+      cout << "Tu proxima jugada es: Papel" << endl;
+    }else{
+      cout << "Tu proxima jugada es: Tijera" << endl;
+    }
   }else{
     cout << "No puedo predecir tu jugada porque no has hecho esa jugada antes" << endl;
   }

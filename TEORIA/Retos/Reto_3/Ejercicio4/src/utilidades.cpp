@@ -1,42 +1,27 @@
 #include <iostream>
 #include <cmath>
 #include <stack>
-#include <queue>
 #include "utilidades.h"
 using namespace std;
 
-void reordena(stack<int> &pila){
-  queue<int> cola;
-  int tam;
+void lexico_stack(int &n){
+  stack<int> pila, pila_rev;
 
-  // vuelco la pila en la cola
-  while(!pila.empty()){
-    cola.push(pila.top());
-    pila.pop();
-  }
+  for(int i = 1; i <= n; i++){
+    pila.push(i);
 
-  tam = cola.size();
-  // los pares los meto en la pila, y los impares los vuelvo a introducir
-  for(int i = 0; i < tam; i++){
-    if(cola.front() % 2 != 0){
-      pila.push(cola.front());
-    }else{
-      cola.push(cola.front());
+    while (! pila.empty()) {
+      pila_rev.push(pila.top());
+      pila.pop();
     }
-    cola.pop();
-  }
 
-  // introduzco en la pila los impares
-  while(!cola.empty()){
-    pila.push(cola.front());
-    cola.pop();
-  }
-}
-
-void imprimir_pila(stack<int> pila){
-  while(! pila.empty()){
-    cout << pila.top() << " ";
-    pila.pop();
+    while(! pila_rev.empty()){
+      cout << pila_rev.top();
+      pila.push(pila_rev.top());
+      pila_rev.pop();
+    }
+    cout << " ";
   }
   cout << endl;
+
 }

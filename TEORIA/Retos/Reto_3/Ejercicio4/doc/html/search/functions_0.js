@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imprimir_5fpila_4',['imprimir_pila',['../utilidades_8h.html#a870ed98cbf03967a1dd913b8b437b19a',1,'utilidades.h']]]
+  ['lexico_5fstack_3',['lexico_stack',['../utilidades_8h.html#a15428f7549a304139fba3316f5a65659',1,'utilidades.h']]]
 ];
