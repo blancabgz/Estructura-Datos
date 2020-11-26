@@ -1,5 +1,5 @@
 /**
-  * @file pila.cpp
+  * @file Pila_max.cpp
   * @brief Implementación del TDA Pila max
   *
   */

@@ -1,5 +1,5 @@
 /**
-  * @file pila_max.h
+  * @file Pila_max.h
   * @brief Fichero cabecera del TDA Pila_max
   *
   * Gestiona dos secuencia de elementos con facilidades para la inserción y
@@ -11,7 +11,14 @@
 #define __Pila_Max_H__
 
 #include <cassert>
-#include <pila_max.cpp>
+#include <Pila_max.cpp>
+
+/**
+ *  @brief T.D.A. Pila_max
+ *
+ * @author Blanca Abril González y Carlos Romero de la Puente. 
+ * @date Noviembre 2020
+ */
 
 template <class T>
 class Pila_max{
