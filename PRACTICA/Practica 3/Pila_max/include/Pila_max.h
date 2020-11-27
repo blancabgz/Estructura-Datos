@@ -11,7 +11,6 @@
 #define __Pila_Max_H__
 
 #include <cassert>
-#include <Pila_max.cpp>
 
 /**
  *  @brief T.D.A. Pila_max
@@ -137,4 +136,4 @@ public:
 
 };
 
-#endif __Pila_Max_H__
+#endif
