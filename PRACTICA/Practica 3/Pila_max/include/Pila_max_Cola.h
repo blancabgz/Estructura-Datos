@@ -16,11 +16,13 @@
 /**
  *  @brief Pila_max con Colas
  *
- * @author Blanca Abril González y Carlos Romero de la Puente. 
+ * @author Blanca Abril González y Carlos Romero de la Puente.
  * @date Noviembre 2020
  */
 
 class Pila_max_Cola{
 private:
-	
+
 }
+
+#endif

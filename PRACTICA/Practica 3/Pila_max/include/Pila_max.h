@@ -16,7 +16,7 @@
 /**
  *  @brief T.D.A. Pila_max
  *
- * @author Blanca Abril González y Carlos Romero de la Puente. 
+ * @author Blanca Abril González y Carlos Romero de la Puente.
  * @date Noviembre 2020
  */
 
