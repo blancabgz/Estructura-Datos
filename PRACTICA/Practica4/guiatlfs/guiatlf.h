@@ -87,11 +87,11 @@ class Guia_Tlf{
             o false en caso contrario
         */
         pair<map<string,string>::iterator,bool>  insert(string nombre, string tlf){
-            pair<string,string> p (nombre,tlf);
-            pair< map<string,string> ::iterator,bool> ret;
+        pair<string,string> p (nombre,tlf);
+        pair< map<string,string> ::iterator,bool> ret;
 
-            ret=datos.insert(p); //datos.insert(datos.begin(),p); tambien funcionaría
-            return ret;
+        ret=datos.insert(p); //datos.insert(datos.begin(),p); tambien funcionaría
+        return ret;
 
         }
 
@@ -179,12 +179,12 @@ class Guia_Tlf{
           @return: una nueva guia resultado de unir el objeto al que apunta this y g
         */
         Guia_Tlf operator+(const Guia_Tlf & g){
-      Guia_Tlf aux(*this);
-      map<string,string>::const_iterator it;
-      for (it=g.datos.begin();it!=g.datos.end();++it){
-         aux.insert(it->first,it->second);
-      }
-      return aux;
+          Guia_Tlf aux(*this);
+          map<string,string>::const_iterator it;
+          for (it=g.datos.begin();it!=g.datos.end();++it){
+             aux.insert(it->first,it->second);
+          }
+          return aux;
 
         }
 
@@ -194,14 +194,27 @@ class Guia_Tlf{
           @return: una nueva guia resultado de la diferencia del objeto al que apunta this y g
         */
         Guia_Tlf operator-(const Guia_Tlf & g){
-      Guia_Tlf aux(*this);
-      map<string,string>::const_iterator it;
-      for (it=g.datos.begin();it!=g.datos.end();++it){
-         aux.borrar(it->first,it->second);
-      }
-      return aux;
+          Guia_Tlf aux(*this);
+          map<string,string>::const_iterator it;
+          for (it=g.datos.begin();it!=g.datos.end();++it){
+             aux.borrar(it->first,it->second);
+          }
+          return aux;
 
         }
+
+        Guia_Tlf operator*(const Guia_Tlf & g){
+          Guia_Tlf aux;
+          map<string,string>::const_iterator it;
+
+          for(it = g.datos.begin(); it != g.datos.end(); ++it){
+            if(datos.find(it->first) != datos.end()){
+              aux.insert(*it);
+            }
+          }
+          return aux;
+        }
+
         /**
           @brief  Obtiene una guia con los nombre previos a uno dado
           @param nombre: nombre delimitador
@@ -209,16 +222,15 @@ class Guia_Tlf{
           @return nueva guia sin nombres mayores que \a  nombre
          */
         Guia_Tlf previos(const string &nombre,const string &tlf){
-      map<string,string>::value_compare vc=datos.value_comp(); //map<string,string>::key_compare vc=datos.key_comp()
-      Guia_Tlf aux;
-      pair<string,string>p(nombre,tlf);
-      map<string,string>::iterator it=datos.begin();
-      while (vc(*it,p)){
-          aux.insert(*it++);
+          map<string,string>::value_compare vc=datos.value_comp(); //map<string,string>::key_compare vc=datos.key_comp()
+          Guia_Tlf aux;
+          pair<string,string>p(nombre,tlf);
+          map<string,string>::iterator it=datos.begin();
+          while (vc(*it,p)){
+              aux.insert(*it++);
 
-      }
-      return aux;
-
+          }
+          return aux;
          }
 
 
@@ -233,7 +245,7 @@ class Guia_Tlf{
         friend ostream & operator<<(ostream & os, Guia_Tlf & g){
             map<string,string>::iterator it;
             for (it=g.datos.begin(); it!=g.datos.end();++it){
-          os<<it->first<<"\t"<<it->second<<endl;
+              os<<it->first<<"\t"<<it->second<<endl;
             }
             return os;
         }
@@ -250,7 +262,7 @@ class Guia_Tlf{
             Guia_Tlf aux;
 
             while (is>>p){
-          aux.insert(p);
+              aux.insert(p);
             }
             g=aux;
             return is;
@@ -264,39 +276,99 @@ class Guia_Tlf{
           map<string,string>::iterator it;
          public:
            iterator & operator++(){
-          ++it;
+             ++it;
+             return *this;
            }
            iterator & operator--(){
-         --it;
-           }
-           pair<const string,string> &operator *(){
-        return *it;
-           }
-           bool operator ==(const iterator &i){
-        return i.it==it;
+             --it;
+             return *this;
            }
 
-           bool operator !=(const iterator &i){
-        return i.it!=it;
+           pair<const string,string> &operator*(){
+             return *it;
            }
+
+           iterator & operator= (const iterator &i){
+             it = i.it;
+             return *this;
+           }
+
+           bool operator==(const iterator &i){
+             return i.it==it;
+           }
+
+           bool operator!=(const iterator &i){
+             return i.it!=it;
+           }
+
+           friend class Guia_Tlf;
+        };
+
+
+        class const_iterator{
+         private:
+          map<string,string>::const_iterator it;
+         public:
+           const_iterator & operator++(){
+             ++it;
+             return *this;
+           }
+           const_iterator & operator--(){
+             --it;
+             return *this;
+           }
+
+           const pair<const string,string> &operator*(){
+             return (*it);
+           }
+
+           const_iterator & operator= (const const_iterator &i){
+             it = i.it;
+             return *this;
+           }
+
+           bool operator==(const const_iterator &i){
+             return i.it==it;
+           }
+
+           bool operator!=(const const_iterator &i){
+             return i.it!=it;
+           }
+
            friend class Guia_Tlf;
         };
 
         /**
          * @brief Inicializa un iterator al comienzo de la guia
          * */
+        const_iterator begin() const{
+          const_iterator i;
+          i.it=datos.cbegin();
+          return i;
+        }
+        /**
+         * @brief Inicializa un iterator al final de la guia
+         * */
+        const_iterator end()const{
+          const_iterator i;
+          i.it=datos.cend();
+          return i;
+        }
+        /**
+         * @brief Inicializa un iterator al comienzo de la guia
+         * */
         iterator begin(){
-      iterator i;
-      i.it=datos.begin();
-      return i;
+          iterator i;
+          i.it=datos.begin();
+          return i;
         }
         /**
          * @brief Inicializa un iterator al final de la guia
          * */
         iterator end(){
-      iterator i;
-      i.it=datos.end();
-      return i;
+          iterator i;
+          i.it=datos.end();
+          return i;
         }
 
 
