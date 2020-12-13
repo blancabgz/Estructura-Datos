@@ -68,21 +68,26 @@ class Guia_Tlf{
         string  gettelefono(const string & nombre);
 
         /**
-          @brief Modificar contacto
+          @brief Esta funcion nos permite modificar el telefono asociado a ese nombre
           @param nombre: nombre que se quiere cambiar y otro telefono
-          @note: esta funcion nos permite modificar el telefono asociado a ese nombre
         */
 
         void modificar_contacto(const string &nombre,const string &otro_telef);
 
         /**
-         * [sacar_contactos_letra description]
-         * @param  letra [description]
-         * @return       [description]
+         * @brief Sacar los contactos que empiecen por la letra que inserta el usuario
+         * @param  letra: letra por la que hay que filtrar
+         * @return Guia de telefonos con los contactos asociados
          */
 
 
         Guia_Tlf sacar_contactos_letra(const char &letra);
+
+        /**
+         * @brief  Sacar los contactos que contengan el/los numero/s que indica el usuario
+         * @param  numeros: numero/numeros que introduce el usuario
+         * @return Guia de telefonos con los contactos asociados
+        */
 
         Guia_Tlf sacar_contactos_numero(const string &numeros);
 
@@ -155,6 +160,7 @@ class Guia_Tlf{
           @return: una nueva guia resultado de la diferencia del objeto al que apunta this y g
         */
         Guia_Tlf operator-(const Guia_Tlf & g);
+
 
         Guia_Tlf operator*(const Guia_Tlf & g);
 
