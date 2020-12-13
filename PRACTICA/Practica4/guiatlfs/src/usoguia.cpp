@@ -17,48 +17,71 @@ int main(int argc , char * argv[]){
  Guia_Tlf g;
 
  f>>g;
- cout<<"La guia insertada "<<g<<endl;
+ cout << "\n\e[1;34m-------------------------------------GUIA TELEFONICA--------------------------------\e[0m" << endl;
+ cout<< "\n" <<g<<endl;
  cin.clear();
- cout<<"Dime un nombre sobre el que quieres obtener el telefono"<<endl;
+
+ cout << "\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
+ cout << "\e[1;34mObtener el telefono de un contacto\e[0m" << endl;
+ cout << "\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
+
+ cout<<"\nDime un nombre sobre el que quieres obtener el telefono"<<endl;
  string n;
 
  while (getline(cin,n)&& n!= "-1"){
 	   cout<<"Buscando "<<n<<"...."<<endl;
 	   string tlf = g.gettelefono(n);
 	   if (tlf==""){
-		     cout<<"No existe ese nombre en la guia"<<endl;
+		     cout<<"\e[1;31mNo existe ese nombre en la guia\e[0m"<<endl;
 	   }
 	   else
-	    cout<<"El telefono es "<<tlf<<endl;
+	    cout<<"\nEl telefono es "<<tlf<<endl;
 	   cout<<"[Escriba -1 para finalizar] Dime un nombre sobre el que quieres obtener el telefono"<<endl;
  }
 
  cin.clear();
+ cout << "\n\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
+ cout << "\e[1;34mBorrar un contacto\e[0m" << endl;
+ cout << "\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
+
  cout<<"Dime el nombre que quieres borrar"<<endl;
 
 
  while (getline(cin,n)&& n!= "-1"){
 	   g.borrar(n);
-	   cout<<"Ahora la guia es:"<<endl;
+	   cout<<"\nAhora la guia es:\n"<<endl;
 	   cout<<g<<endl;
 	   cout<<"[Escriba -1 para finalizar] Dime el nombre que quieres borrar"<<endl;
  }
 
+ cout << "\n\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
+ cout << "\e[1;34mModificar un contacto\e[0m" << endl;
+ cout << "\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
+
  string nombre_modificar;
  string telef;
- cout << "Introduce un contacto a modificar" << endl;
- getline(cin,nombre_modificar);
- cin.clear();
- cout << "Introduce el nuevo telefono " << endl;
- getline(cin,telef);
- cout << "Vamos a modificar el telefono " << telef << " en el contacto " << nombre_modificar << endl;
 
- if(g.modificar_contacto(nombre_modificar, telef)){
-   cout << "Se ha modificado el contacto " << nombre_modificar << endl;
-   cout<<g<<endl;
- }else{
-   cout << "No se ha podido modificar el contacto " << nombre_modificar << " porque no está en la guía" <<  endl;
+ cin.clear();
+ cout << "Introduce un contacto a modificar" << endl;
+
+ while (getline(cin,nombre_modificar) && nombre_modificar!= "-1"){
+   if(g.contabiliza(nombre_modificar) != 0){
+     cout << "Introduce el nuevo telefono " << endl;
+     getline(cin,telef);
+     g.modificar_contacto(nombre_modificar, telef);
+     cout << "Se ha modificado el contacto " << nombre_modificar << endl;
+     cout << "\nGuia telefonica modificada: \n" << endl;
+     cout<<g<<endl;
+     cout << "\n\e[1;34m[Escriba -1 para finalizar]\e[0m Introduce un contacto a modificar" << endl;
+   }else{
+     cout << "\n\e[1;31mNo se ha podido modificar el contacto " << nombre_modificar << " porque no está en la guía\e[0m" <<  endl;
+     cout << "\n\e[1;34m[Escriba -1 para finalizar]\e[0m Introduce un contacto a modificar" << endl;
+   }
  }
+
+ cout << "\n\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
+ cout << "\e[1;34mMostrar la guia de todos los contactos que empiezan por la letra que indica el usuario\e[0m" << endl;
+ cout << "\e[1;34m--------------------------------------------------------------------------------------\e[0m" << endl;
 
  cin.clear();
  char letra;
@@ -70,9 +93,12 @@ int main(int argc , char * argv[]){
    cout << "Los contactos que empiezan por la letra " << letra << " son: " << endl;
    cout << guia_cortada << endl;
  }else{
-   cout << "No hay contactos que empiecen por la letra " << letra << endl;
+   cout << "\e[1;31mNo hay contactos que empiecen por la letra " << letra << "\e[0m" << endl;
  }
 
+ cout << "\e[1;34m---------------------------------------------------------------------------------------------------\e[0m" << endl;
+ cout << "\e[1;34mMostrar la guia de todos los contactos cuyo telefono contenta el/los numero/s que indica el usuario\e[0m" << endl;
+ cout << "\e[1;34m----------------------------------------------------------------------------------------------------\e[0m" << endl;
 
  string numeros;
  cout << "Introduce un numero/numeros para buscar todos los telefonos que lo contienen" << endl;
@@ -80,12 +106,15 @@ int main(int argc , char * argv[]){
  cin >> numeros;
  Guia_Tlf guia_cortada_num = g.sacar_contactos_numero(numeros);
  if(guia_cortada_num.size() > 0){
-   cout << "Los contactos que contienen el numero/s " << numeros << " son: " << endl;
+   cout << "\nLos contactos que contienen el numero/s " << numeros << " son:\n " << endl;
    cout << guia_cortada_num << endl;
  }else{
-   cout << "No hay contactos que contengan el numero/s " << numeros << endl;
+   cout << "\n\e[1;31mNo hay contactos que contengan el numero/s " << numeros << "\e[0m" << endl;
  }
 
+ cout << "\e[1;34m---------------------------------------------------------------------------------------------------\e[0m" << endl;
+ cout << "\e[1;34mBorrar la guía telefónica\e[0m" << endl;
+ cout << "\e[1;34m----------------------------------------------------------------------------------------------------\e[0m" << endl;
 
  if( g.borrarTodo()){
    cout << "Borrando ... " << endl;
@@ -93,38 +122,5 @@ int main(int argc , char * argv[]){
  }else{
    cout << "No se ha podido borrar la guia telefonica" << endl;
  }
-
-
-
- // cin.clear();
- // string nombre_guia;
- // Guia_Tlf otraguia;
- // cout<<"Introduce otra guia ([Pulse CTRL+D para finalizar])"<<endl;
- // cin>>nombre_guia;
- //
- // ifstream f_otraguia(nombre_guia);
- //
- // if (!f_otraguia){
- //     cout<<"No puedo abrir el fichero "<<nombre_guia<<endl;
- //     return 0;
- // }
- // f_otraguia>>otraguia;
- // Guia_Tlf un = g+otraguia;
- // Guia_Tlf dif = g-otraguia;
- // cout<<endl<<"La union de las dos guias: "<<un<<endl;
- //
- // cout<<endl<<"La diferencia de las dos guias:"<<dif<<endl;
- //
- // cout<<endl<<"Dime un nombre para establecer los previos"<<endl;
- // cin>>n;
- // string tlf= g.gettelefono(n);
- // Guia_Tlf p = g.previos(n,tlf);
- // cout<<endl<<"Los nombre previos: "<<p<<endl;
- //
- //
- // cout<<"Listando la guia con iteradores:"<<endl;
- // Guia_Tlf::iterator it;
- // for (it=g.begin(); it!=g.end(); ++it)
- //     cout<<*it<<endl;
 
 }

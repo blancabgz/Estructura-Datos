@@ -27,13 +27,9 @@ string Guia_Tlf::gettelefono(const string & nombre){
     else return it->second;
 }
 
-bool Guia_Tlf::modificar_contacto(const string &nombre,const string &otro_telef){
-  if(contabiliza(nombre) == 1){
+void Guia_Tlf::modificar_contacto(const string &nombre,const string &otro_telef){
     map<string,string>::iterator it=datos.find(nombre);
     it->second = otro_telef;
-    return true;
-  }
-  return false;
 }
 
 Guia_Tlf Guia_Tlf::sacar_contactos_letra(const char &letra){
@@ -81,7 +77,6 @@ pair<map<string,string>::iterator,bool> Guia_Tlf::insert(pair<string,string> p){
     return ret;
 
 }
-
 
 void Guia_Tlf::borrar(const string &nombre){
   map<string,string>::iterator itlow = datos.lower_bound(nombre);//el primero que tiene dicho nombre

@@ -73,7 +73,7 @@ class Guia_Tlf{
           @note: esta funcion nos permite modificar el telefono asociado a ese nombre
         */
 
-        bool modificar_contacto(const string &nombre,const string &otro_telef);
+        void modificar_contacto(const string &nombre,const string &otro_telef);
 
         /**
          * [sacar_contactos_letra description]
