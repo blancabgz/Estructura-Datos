@@ -48,8 +48,7 @@ class Guia_Tlf{
   *
   */
     private:
-        map<string,string> datos; //si admites que haya nombres repetidos tendrías que usar un
-               //multimap
+        map<string,string> datos; //si admites que haya nombres repetidos tendrías que usar un multimap
 
     public:
 
@@ -58,18 +57,25 @@ class Guia_Tlf{
           @param nombre: nombre del elemento  elemento acceder
           @return devuelve el valor asociado a un nombre, es decir el teléfono
         */
+
         //si fuese un multimap no podriamos usar []. Ademas que deberiamos devolver p.e un vector con todos
         // los telefonos asociados a dicho nombre
         string & operator[](const string &nombre) {
             return datos[nombre];
         }
 
+        /**
+          @brief Esta funcion nos permite obtener un telefono asociado a un nombre
+          @param nombre: nombre del contacto para poder consultar el telefono
+        */
 
         string  gettelefono(const string & nombre);
 
         /**
           @brief Esta funcion nos permite modificar el telefono asociado a ese nombre
-          @param nombre: nombre que se quiere cambiar y otro telefono
+          @param nombre: nombre del contacto
+          @param otro_telef: telefono porq
+
         */
 
         void modificar_contacto(const string &nombre,const string &otro_telef);

@@ -1,0 +1,141 @@
+\hypertarget{classDiccionario}{}\doxysection{Referencia de la plantilla de la Clase Diccionario$<$ T, U $>$}
+\label{classDiccionario}\index{Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}}
+\doxysubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classDiccionario_1_1const__iterator}{const\+\_\+iterator}}
+\item 
+class \mbox{\hyperlink{classDiccionario_1_1iterator}{iterator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDiccionario_ad8917f4e401b473139403dc5964e8307}\label{classDiccionario_ad8917f4e401b473139403dc5964e8307}} 
+{\bfseries Diccionario} (const \mbox{\hyperlink{classDiccionario}{Diccionario}} \&D)
+\item 
+\mbox{\Hypertarget{classDiccionario_abc9504855c268dcdffb7e117489992f6}\label{classDiccionario_abc9504855c268dcdffb7e117489992f6}} 
+\mbox{\hyperlink{classDiccionario}{Diccionario}}$<$ T, U $>$ \& {\bfseries operator=} (const \mbox{\hyperlink{classDiccionario}{Diccionario}}$<$ T, U $>$ \&D)
+\item 
+\mbox{\Hypertarget{classDiccionario_aed08682f43af8f4537c6a88211bb225a}\label{classDiccionario_aed08682f43af8f4537c6a88211bb225a}} 
+bool {\bfseries Esta\+\_\+\+Clave} (const T \&p, typename list$<$ \mbox{\hyperlink{structdata}{data}}$<$ T, U $>$ $>$\+::\mbox{\hyperlink{classDiccionario_1_1iterator}{iterator}} \&it\+\_\+out)
+\item 
+\mbox{\Hypertarget{classDiccionario_af520b73907852cc8002260ddf9fb822c}\label{classDiccionario_af520b73907852cc8002260ddf9fb822c}} 
+void {\bfseries Insertar} (const T \&clave, const list$<$ U $>$ \&info)
+\item 
+\mbox{\Hypertarget{classDiccionario_a7e167da231bff610001df3c20cc9b7a7}\label{classDiccionario_a7e167da231bff610001df3c20cc9b7a7}} 
+void {\bfseries Add\+Significado\+\_\+\+Palabra} (const U \&s, const T \&p)
+\item 
+\mbox{\Hypertarget{classDiccionario_a292817b0fda893a41cd9313b4c65cc61}\label{classDiccionario_a292817b0fda893a41cd9313b4c65cc61}} 
+list$<$ U $>$ {\bfseries get\+Info\+\_\+\+Asoc} (const T \&p)
+\item 
+int \mbox{\hyperlink{classDiccionario_aed258d53bff9232e7a607d6663511dde}{get\+Num\+Definiciones}} (list$<$ U $>$ l) const
+\begin{DoxyCompactList}\small\item\em Obtiene el numero de definiciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDiccionario_a875750d2a358dcfcb51d82a24114241a}{eliminar}} (const T clave)
+\begin{DoxyCompactList}\small\item\em Elimina una difinicion. \end{DoxyCompactList}\item 
+const T \mbox{\hyperlink{classDiccionario_a5c44d2603857c22a4721a29606ff2b37}{palabra\+\_\+mas\+\_\+definiciones}} ()
+\begin{DoxyCompactList}\small\item\em Muestra la palabra con más definiciones del diccionario. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDiccionario_ab17a109e1b6e92daecd64b2d8a3babe8}{total\+\_\+definiciones}} ()
+\begin{DoxyCompactList}\small\item\em Calcula el numero de definiciones que tiene el diccionario en total. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDiccionario_aed1a7e260587654d4c24bbbf08f3b6d0}{promedio\+\_\+\+Definiciones}} ()
+\begin{DoxyCompactList}\small\item\em Calcula el promedio de las definiciones que tiene cada palabra. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDiccionario_aa576b001759429fd58210ca57257d6f8}\label{classDiccionario_aa576b001759429fd58210ca57257d6f8}} 
+int {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classDiccionario_aa17ce3d7317d78f5927ae7c0564089cc}\label{classDiccionario_aa17ce3d7317d78f5927ae7c0564089cc}} 
+\mbox{\hyperlink{classDiccionario_1_1iterator}{iterator}} {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{classDiccionario_adb5cdbfce59b4005bd07473273df3a8e}\label{classDiccionario_adb5cdbfce59b4005bd07473273df3a8e}} 
+\mbox{\hyperlink{classDiccionario_1_1iterator}{iterator}} {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classDiccionario_aaf7ead9ce3224aa11d1b3a559d34560b}\label{classDiccionario_aaf7ead9ce3224aa11d1b3a559d34560b}} 
+\mbox{\hyperlink{classDiccionario_1_1const__iterator}{const\+\_\+iterator}} {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{classDiccionario_ab7f74fb7673891356838561eb28e2c09}\label{classDiccionario_ab7f74fb7673891356838561eb28e2c09}} 
+\mbox{\hyperlink{classDiccionario_1_1const__iterator}{const\+\_\+iterator}} {\bfseries end} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classDiccionario_a875750d2a358dcfcb51d82a24114241a}\label{classDiccionario_a875750d2a358dcfcb51d82a24114241a}} 
+\index{Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}!eliminar@{eliminar}}
+\index{eliminar@{eliminar}!Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{eliminar()}{eliminar()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+void \mbox{\hyperlink{classDiccionario}{Diccionario}}$<$ T, U $>$\+::eliminar (\begin{DoxyParamCaption}\item[{const T}]{clave }\end{DoxyParamCaption})}
+
+
+
+Elimina una difinicion. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em clave} & definicion que queremos borrar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDiccionario_aed258d53bff9232e7a607d6663511dde}\label{classDiccionario_aed258d53bff9232e7a607d6663511dde}} 
+\index{Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}!getNumDefiniciones@{getNumDefiniciones}}
+\index{getNumDefiniciones@{getNumDefiniciones}!Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{getNumDefiniciones()}{getNumDefiniciones()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+int \mbox{\hyperlink{classDiccionario}{Diccionario}}$<$ T, U $>$\+::get\+Num\+Definiciones (\begin{DoxyParamCaption}\item[{list$<$ U $>$}]{l }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene el numero de definiciones. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em lista} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+devuelve el numero de definiciones que hay en la lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiccionario_a5c44d2603857c22a4721a29606ff2b37}\label{classDiccionario_a5c44d2603857c22a4721a29606ff2b37}} 
+\index{Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}!palabra\_mas\_definiciones@{palabra\_mas\_definiciones}}
+\index{palabra\_mas\_definiciones@{palabra\_mas\_definiciones}!Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{palabra\_mas\_definiciones()}{palabra\_mas\_definiciones()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+const T \mbox{\hyperlink{classDiccionario}{Diccionario}}$<$ T, U $>$\+::palabra\+\_\+mas\+\_\+definiciones}
+
+
+
+Muestra la palabra con más definiciones del diccionario. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve la clave que tiene más definiciones 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiccionario_aed1a7e260587654d4c24bbbf08f3b6d0}\label{classDiccionario_aed1a7e260587654d4c24bbbf08f3b6d0}} 
+\index{Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}!promedio\_Definiciones@{promedio\_Definiciones}}
+\index{promedio\_Definiciones@{promedio\_Definiciones}!Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{promedio\_Definiciones()}{promedio\_Definiciones()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+int \mbox{\hyperlink{classDiccionario}{Diccionario}}$<$ T, U $>$\+::promedio\+\_\+\+Definiciones}
+
+
+
+Calcula el promedio de las definiciones que tiene cada palabra. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve el promedio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiccionario_ab17a109e1b6e92daecd64b2d8a3babe8}\label{classDiccionario_ab17a109e1b6e92daecd64b2d8a3babe8}} 
+\index{Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}!total\_definiciones@{total\_definiciones}}
+\index{total\_definiciones@{total\_definiciones}!Diccionario$<$ T, U $>$@{Diccionario$<$ T, U $>$}}
+\doxysubsubsection{\texorpdfstring{total\_definiciones()}{total\_definiciones()}}
+{\footnotesize\ttfamily template$<$class T , class U $>$ \\
+int \mbox{\hyperlink{classDiccionario}{Diccionario}}$<$ T, U $>$\+::total\+\_\+definiciones}
+
+
+
+Calcula el numero de definiciones que tiene el diccionario en total. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve el numero de definiciones 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+include/diccionario.\+h\item 
+include/diccionario.\+cpp\end{DoxyCompactItemize}
