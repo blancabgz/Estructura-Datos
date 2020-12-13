@@ -75,8 +75,59 @@ class Guia_Tlf{
         string  gettelefono(const string & nombre){
             map<string,string>::iterator it=datos.find(nombre);
             if (it==datos.end())
-          return string("");
+              return string("");
             else return it->second;
+        }
+
+        /**
+          @brief Modificar contacto
+          @param nombre: nombre que se quiere cambiar y otro telefono
+          @note: esta funcion nos permite modificar el telefono asociado a ese nombre
+        */
+
+        bool modificar_contacto(const string &nombre,const string &otro_telef){
+          if(contabiliza(nombre) == 1){
+            map<string,string>::iterator it=datos.find(nombre);
+            it->second = otro_telef;
+            return true;
+          }
+
+          return false;
+        }
+
+        /**
+         * [sacar_contactos_letra description]
+         * @param  letra [description]
+         * @return       [description]
+         */
+
+
+        Guia_Tlf sacar_contactos_letra(const char &letra){
+          Guia_Tlf aux;
+          map<string,string>::iterator it;
+          for (it=datos.begin();it != datos.end();++it){
+            char nombre = it->first[0];
+            if(nombre == toupper(letra)){
+              aux.insert(*it);
+            }
+          }
+          return aux;
+        }
+
+        Guia_Tlf sacar_contactos_numero(const string &numeros){
+          Guia_Tlf aux;
+          string num;
+          size_t found;
+
+          map<string,string>::iterator it;
+          for (it=datos.begin();it != datos.end();++it){
+            num = it->second;
+            found = num.find(numeros);
+            if(found != std::string::npos){
+              aux.insert(*it);
+            }
+          }
+          return aux;
         }
 
         /**
@@ -111,8 +162,6 @@ class Guia_Tlf{
 
         }
 
-
-
         /**
           @brief Borrar un telefono
           @param nombre: nombre que se quiere borrar
@@ -122,7 +171,7 @@ class Guia_Tlf{
          map<string,string>::iterator itlow = datos.lower_bound(nombre);//el primero que tiene dicho nombre
          map<string,string>::iterator itupper = datos.upper_bound(nombre);//el primero que ya no tiene dicho nombre
          if(itlow->first != nombre)return;
-         datos.erase(itlow,itupper);//borramos todos aquellos que tiene dicho nombre
+         datos.erase(itlow,itupper); //borramos todos aquellos que tiene dicho nombre
          //OTRA ALTERNATIVA
          //pair<map<string,string>::iterator,map<string,string>::iterator>ret;
          //ret = datos.equal_range(nombre
@@ -143,12 +192,22 @@ class Guia_Tlf{
          bool salir =false;
          for (it=itlow; it!=itupper && !salir;++it){
              if (it->second==tlf){
-          datos.erase(it);
-          salir =true;
+              datos.erase(it);
+              salir =true;
              }
          }
 
         }
+
+        /**
+         * @brief Borra toda la lista de telefonos
+         * @return verdadero si se ha borrado
+         */
+        bool borrarTodo(){
+          datos.clear();
+          return true;
+        }
+
         /**
           @brief  Numero de telefonos
           @return el numero de telefonos asociados

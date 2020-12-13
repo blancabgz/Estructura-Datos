@@ -40,7 +40,59 @@ int main(int argc , char * argv[]){
 	   cout<<g<<endl;
 	   cout<<"[Escriba -1 para finalizar] Dime el nombre que quieres borrar"<<endl;
  }
- 
+
+ string nombre_modificar;
+ string telef;
+ cout << "Introduce un contacto a modificar" << endl;
+ getline(cin,nombre_modificar);
+ cin.clear();
+ cout << "Introduce el nuevo telefono " << endl;
+ getline(cin,telef);
+ cout << "Vamos a modificar el telefono " << telef << " en el contacto " << nombre_modificar << endl;
+
+ if(g.modificar_contacto(nombre_modificar, telef)){
+   cout << "Se ha modificado el contacto " << nombre_modificar << endl;
+   cout<<g<<endl;
+ }else{
+   cout << "No se ha podido modificar el contacto " << nombre_modificar << " porque no está en la guía" <<  endl;
+ }
+
+ cin.clear();
+ char letra;
+ cout << "Introduce la letra para buscar " << endl;
+ cin >> letra;
+ Guia_Tlf guia_cortada = g.sacar_contactos_letra(letra);
+
+ if(guia_cortada.size() > 0){
+   cout << "Los contactos que empiezan por la letra " << letra << " son: " << endl;
+   cout << guia_cortada << endl;
+ }else{
+   cout << "No hay contactos que empiecen por la letra " << letra << endl;
+ }
+
+
+ string numeros;
+ cout << "Introduce un numero/numeros para buscar todos los telefonos que lo contienen" << endl;
+ cin.clear();
+ cin >> numeros;
+ Guia_Tlf guia_cortada_num = g.sacar_contactos_numero(numeros);
+ if(guia_cortada_num.size() > 0){
+   cout << "Los contactos que contienen el numero/s " << numeros << " son: " << endl;
+   cout << guia_cortada_num << endl;
+ }else{
+   cout << "No hay contactos que contengan el numero/s " << numeros << endl;
+ }
+
+
+ if( g.borrarTodo()){
+   cout << "Borrando ... " << endl;
+   cout << "Tiene " << g.size() << " elementos" << endl;
+ }else{
+   cout << "No se ha podido borrar la guia telefonica" << endl;
+ }
+
+
+
  // cin.clear();
  // string nombre_guia;
  // Guia_Tlf otraguia;
