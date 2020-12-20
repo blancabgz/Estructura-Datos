@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(){
-  list<int> lista;
+  list<int> listas;
   int jugada, prediccion;
 
   cout << "Inicio del programa: " << endl;
