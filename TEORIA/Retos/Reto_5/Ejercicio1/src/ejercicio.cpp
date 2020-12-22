@@ -1,53 +1,74 @@
 #include <iostream>
+#include "bintree.h"
 #include <list>
-#include "utilidades.h"
 
 using namespace std;
 
-int main(){
-  list<int> listas;
-  int jugada, prediccion;
-
-  cout << "Inicio del programa: " << endl;
-  cout << "--------------------------------------------------" << endl;
-  cout << "Introduce tus jugadas de esta forma " << endl;
-  cout << "Piedra: 1" << endl;
-  cout << "Papel: 2" << endl;
-  cout << "Tijera: 3" << endl;
-  cout << "Parar de meter jugadas: 0" << endl;
-  cout << "--------------------------------------------------" << endl;
-
-  // obtengo las jugadas del jugador hasta que meta un 0
-  cout << "Introduce una jugada (0 para finalizar):" << endl;
-  cin >> jugada;
-  while(jugada != 0){
-    if(jugada >= 4){
-      cout << "Has introducido un numero inválido" << endl;
-    }else{
-      lista.push_back(jugada);
+void calcularniveles(bintree<int>::node n, int prof, vector<pair<int, int>> & calculo){
+  if(!n.null()){
+    // cout << *n << " / " << prof << endl;
+    if(prof > calculo.size()){
+      int aux = calculo.size();
+      calculo.resize(prof);
+      for(int i = aux; i < prof; i++){
+        calculo[i].first = 0;
+        calculo[i].second = 0;
+      }
     }
-    cout << "Introduce una jugada (0 para finalizar):" << endl;
-    cin >> jugada;
+
+    calculo[prof - 1].first += *n;
+    calculo[prof - 1].second ++;
+
+    if(!n.right().null()){
+      calcularniveles(n.right(), prof+1, calculo);
+    }
+
+    if(!n.left().null()){
+      calcularniveles(n.left(), prof+1, calculo);
+    }
+
   }
 
-  cout << endl;
-  cout << "Introduce el numero de jugadas que quieres que prediga" << endl;
-  cin >> prediccion;
-  cout << "--------------------------------------------------" << endl;
+}
 
-  // funcion para predecir la jugada
-  int num = ppt(lista,prediccion);
+void prom_nivel(bintree<int> &T, list<float> & P){
+  vector<pair<int, int> > calculo;
+  calcularniveles(T.root(),1, calculo);
 
-  if(num != 0){
-    if(num == 1){
-        cout << "Tu proxima jugada es: Piedra" << endl;
-    }else if(num==2){
-      cout << "Tu proxima jugada es: Papel" << endl;
-    }else{
-      cout << "Tu proxima jugada es: Tijera" << endl;
-    }
-  }else{
-    cout << "No puedo predecir tu jugada porque no has hecho esa jugada antes" << endl;
+  for(unsigned int i = 0; i < calculo.size(); i++){
+    float media = calculo[i].first * 1.0 / calculo[i].second;
+    P.push_back(media);
+  }
+}
+
+
+int main(){
+  list<float> lista;
+  int cont = 1;
+
+  /* creo un arbol:
+  //        1
+  //     /    \
+  //    2      3
+  //  /  \    / \
+  // 4    5  6  7
+  //    /  \
+  //   8    9       */
+  bintree<int> arbol(1);
+  arbol.insert_left(arbol.root(), 2);
+  arbol.insert_right(arbol.root(), 3);
+  arbol.insert_left(arbol.root().left(), 4);
+  arbol.insert_right(arbol.root().left(), 5);
+  arbol.insert_left(arbol.root().right(), 6);
+  arbol.insert_right(arbol.root().right(), 7);
+  arbol.insert_left(arbol.root().left().right(), 8);
+  arbol.insert_right(arbol.root().left().right(), 9);
+
+  prom_nivel(arbol, lista);
+
+  for (list<float>::iterator it=lista.begin(); it != lista.end(); ++it){
+    cout << "En la profundidad " << cont << " la media es " << *it << endl;
+    cont++;
   }
 
 }
