@@ -156,7 +156,7 @@ public:
 
    @param n nodo del receptor. !n.Nulo().
    @param e etiqueta del nuevo nodo.
-   
+
    Desconecta y destruye el subárbol a la derecha de n, inserta
    un nuevo nodo con etiqueta e como hijo a la derecha
    */

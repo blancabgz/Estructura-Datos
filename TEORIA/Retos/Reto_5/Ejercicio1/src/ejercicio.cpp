@@ -6,7 +6,7 @@ using namespace std;
 
 void calcularniveles(bintree<int>::node n, int prof, vector<pair<int, int>> & calculo){
   if(!n.null()){
-    // cout << *n << " / " << prof << endl;
+
     if(prof > calculo.size()){
       int aux = calculo.size();
       calculo.resize(prof);
