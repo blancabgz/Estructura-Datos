@@ -6,9 +6,9 @@ using namespace std;
 
 
 
-  /* Arbol_1
+  /* Arbol
   //        2
-  //     /    
+  //     /
   //    3
   //  /  \
   // 5    6
@@ -23,10 +23,7 @@ int main() {
   arbol_1.insert_right(arbol_1.root(), 4);
   arbol_1.insert_left(arbol_1.root().left(), 5);
   arbol_1.insert_right(arbol_1.root().left(), 6);
-  arbol_1.insert_left(arbol_1.root().right(), 7);
-
-
-
+  // arbol_1.insert_left(arbol_1.root().right(), 7);
 
   inferior = es_inferior(arbol_1, arbol_2);
   if(inferior){
