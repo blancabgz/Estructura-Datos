@@ -10,7 +10,7 @@ all: $(BIN)/ejercicio
 doc:
 	doxygen ./doc/Doxygen
 
-$(BIN)/ejercicio: $(SRC)/ejercicio.cpp $(INC)/bintree.h
+$(BIN)/ejercicio: $(SRC)/ejercicio.cpp $(SRC)/utilidades.cpp $(INC)/bintree.h  $(INC)/utilidades.h
 	g++ -o $@ $^ $(flags)
 
 clean:
