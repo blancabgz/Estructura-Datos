@@ -71,16 +71,20 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef UTILIDADES_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define UTILIDADES_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;bintree.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> calcularniveles(<a class="code" href="classbintree_1_1node.html">bintree&lt;int&gt;::node</a> n, <span class="keywordtype">int</span> prof, vector&lt;pair&lt;int, int&gt;&gt; &amp; calculo);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> prom_nivel(<a class="code" href="classbintree.html">bintree&lt;int&gt;</a> &amp;T, list&lt;float&gt; &amp; P);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> buscar(<a class="code" href="classbintree_1_1node.html">bintree&lt;int&gt;::node</a> nodo_bus, <span class="keywordtype">int</span> etiqueta, <a class="code" href="classbintree.html">bintree&lt;int&gt;</a> arbol, <a class="code" href="classbintree_1_1node.html">bintree&lt;int&gt;::node</a> &amp; node);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<a class="code" href="classbintree_1_1node.html">bintree&lt;int&gt;::node</a> siguiente_nodo_nivel(<span class="keyword">const</span> <a class="code" href="classbintree_1_1node.html">bintree&lt;int&gt;::node</a> &amp;n, <span class="keyword">const</span> <a class="code" href="classbintree.html">bintree&lt;int&gt;</a> &amp;arb);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">int</span> buscar_nodo(<a class="code" href="classbintree.html">bintree&lt;int&gt;</a> arbol, <span class="keywordtype">int</span> etiqueta);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassbintree_html"><div class="ttname"><a href="classbintree.html">bintree</a></div><div class="ttdef"><b>Definition:</b> bintree.h:28</div></div>
 <div class="ttc" id="aclassbintree_1_1node_html"><div class="ttname"><a href="classbintree_1_1node.html">bintree::node</a></div><div class="ttdef"><b>Definition:</b> bintree.h:498</div></div>
