@@ -1,0 +1,29 @@
+Razonar la verdad o falsedad de las siguientes afirmaciones:
+
+- La definición priority_queue<int>::iterator p es correcta -> falsa, las colas con prioridad no tienen iteradores, como las
+colas o las pilas, ya que lo que haces es destruirlo.
+- Dado un arbol binario cuyas etiquetas están organizadas como AVL, puedo recuperarlo de forma univoca a partir de su recorrido
+en inorden -> falso porque el inorden no permite recuperar de forma univoca
+
+Por ejemplo:
+      5                     3                ambos si los recorremos en inorden sale: 1 3 5 6
+    /   \                 /    \
+   3     6               1      5
+  /                              \
+ 1                                6
+
+- El elemento de valor máximo en un ABB<int> se encuentra en el nodo más profundo -> falso, se encuentra en la rama mas a la derecha
+al final. Por ejemplo en el segundo árbol de arriba a la derecha, el 6 se coloca en el ultimo hijo a la derecha.
+
+- Considerar un map<int,int> M en el que hacemos M[3] = 7; Supongamos ahora que hacemos
+map <int,int> :: iterator p = M.find(3);
+p -> second = 9;
+Tras hacer esto, el valor de M[3] sigue siendo 7.
+
+Respuesta: falso. Porque en el segunda componente estas asignando 9 asi que la pareja sería 3,7-
+
+- Si A es una tabla hash cerrada con un 50% de elementos vacios y un 40% de elementos borrados y B una tabla hash cerrada
+cin un 50% de elementos vacios y sin elementos borrados, A y B son igual de eficientes cara a la busqueda de un elemento.
+
+Respuesta: En la tabla A, ese 40% de elementos borrados funcionan como llenos y la segunda tabla no tiene elementos borrados,
+entonces la segunda es más eficiente. FALSA
