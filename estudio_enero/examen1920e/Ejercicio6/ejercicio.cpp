@@ -45,5 +45,22 @@ class contenedor{
         }
 
         friend class contenedor;
+    };
+
+    iterator begin(){
+      iterator i;
+      i.it = datos.begin();
+      i.f = datos.end();
+      if(!TodosPares(*i.it).second){
+        ++i;
+      }
+      return i;
     }
-}
+
+    iterator end(){
+      iterator i;
+      i.it = datos.end();
+      i.f = datos.end();
+      return i;
+    }
+};
