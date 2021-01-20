@@ -1,0 +1,19 @@
+Que TDA eliges para implementar:
+
+(a) Implementar un conjunto ordenado de enteros (con funciones básicas de insertar,
+borrar, y buscar) de entre: un ABB (árbol binario de búsqueda), un APO (árbol parcialmente
+ordenado implementado mediante un heap) y un Vector ordenado.
+
+
+SOLUCION -> APO CON heap
+
+(b) Implementar un Diccionario (con funciones básicas de insertar, borrar y buscar) de
+entre: una Tabla Hash abierta, un vector ordenado y una lista ordenada
+
+SOLUCION: tabla hash abierta
+
+(c) Implementar un conjunto no ordenado de enteros (con funciones básicas de
+insertar, borrar y buscar) de entre: un AVL, un vector no ordenado, y una cola
+con prioridad (implementada con un heap).
+
+SOLUCION: AVL
